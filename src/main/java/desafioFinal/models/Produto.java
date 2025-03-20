@@ -1,13 +1,12 @@
 package desafioFinal.models;
 
-public class Produto {
+public class Produto implements Comparable<Produto> {
     private String tipoProduto;
     private String nomeProduto;
     private double valor;
     private String descricao;     // descricao do produto se o cara quiser ver
     private int quantidade;
     private static int totalNoCarrinho = 0;
-
 
 
     public Produto(String tipoProduto, String nomeProduto, double valor, String descricao, int quantidade) {
@@ -18,6 +17,7 @@ public class Produto {
         this.quantidade = quantidade;
         totalNoCarrinho += quantidade;
     }
+
     public String getTipoProduto() {
         return tipoProduto;
     }
@@ -30,12 +30,12 @@ public class Produto {
         return totalNoCarrinho;
     }
 
-    public String getNome() {
+    public String getnomeProduto() {
         return nomeProduto;
     }
 
-    public void setNome(String nome) {
-        this.nomeProduto = nome;
+    public void setnomeProduto(String nome) {
+        this.nomeProduto = nomeProduto;
     }
 
     public int getQuantidade() {
@@ -63,4 +63,8 @@ public class Produto {
     }
 
 
+    @Override
+    public int compareTo(Produto outroProduto) {
+        return this.getnomeProduto().compareTo(outroProduto.getnomeProduto());
+    }
 }

@@ -1,6 +1,6 @@
 package desafioFinal.models;
 
-public class Eletrodomesticos extends Produto{
+public class Eletrodomesticos extends Produto {
 
 
     private String marca;
@@ -19,7 +19,15 @@ public class Eletrodomesticos extends Produto{
     }
 
     @Override
+
     public String toString() {
-        return super.toString();
+        return "Tipo do Produto: " + getTipoProduto() +
+                ", Marca: " + marca +
+                ", Nome: " + getnomeProduto() +
+                ", Valor: " + getValor() +
+                ", Descrição: " + getDescricao() +
+                ", Quantidade: " + getQuantidade();
     }
+
 }
+
