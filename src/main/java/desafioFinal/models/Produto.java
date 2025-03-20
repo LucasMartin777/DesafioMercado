@@ -1,18 +1,29 @@
 package desafioFinal.models;
 
 public class Produto {
-    private String nome;
+    private String tipoProduto;
+    private String nomeProduto;
     private double valor;
     private String descricao;     // descricao do produto se o cara quiser ver
     private int quantidade;
     private static int totalNoCarrinho = 0;
 
-    public Produto(String nome, double valor, String descricao, int quantidade) {
-        this.nome = nome;
+
+
+    public Produto(String tipoProduto, String nomeProduto, double valor, String descricao, int quantidade) {
+        this.tipoProduto = tipoProduto;
+        this.nomeProduto = nomeProduto;
         this.valor = valor;
         this.descricao = descricao;
         this.quantidade = quantidade;
         totalNoCarrinho += quantidade;
+    }
+    public String getTipoProduto() {
+        return tipoProduto;
+    }
+
+    public void setTipoProduto(String tipoProduto) {
+        this.tipoProduto = tipoProduto;
     }
 
     public static int getTotalNoCarrinho() {
@@ -20,11 +31,11 @@ public class Produto {
     }
 
     public String getNome() {
-        return nome;
+        return nomeProduto;
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nomeProduto = nome;
     }
 
     public int getQuantidade() {
@@ -50,4 +61,6 @@ public class Produto {
     public void setValor(double valor) {
         this.valor = valor;
     }
+
+
 }
