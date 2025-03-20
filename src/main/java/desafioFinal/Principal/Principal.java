@@ -2,10 +2,7 @@ package desafioFinal.Principal;
 
 import desafioFinal.models.Eletrodomesticos;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Principal {
     public static void main(String[] args) {
@@ -72,7 +69,6 @@ public class Principal {
         eletrodomesticos.add(new Eletrodomesticos("Ventilador", "Cadence", "Ventisol 50cm", 350, "Design moderno e maior alcance de vento", 25));
 
         Collections.sort(eletrodomesticos);
-        System.out.println(eletrodomesticos);
 
 
         Scanner scanner = new Scanner(System.in);
@@ -115,7 +111,7 @@ public class Principal {
                             *********************************************************
                             """);
             int opcao2 = scanner.nextInt();
-            if (opcao2 == 1) {
+            if (opcao2 == 2) {
                 System.out.println("""
                                 *********************************************************
                                 *        🔌📺 T I P O S   D E   E L E T R O D O M É S T I C O S 📺🔌       *
@@ -150,6 +146,20 @@ public class Principal {
                                     *********************************************************
                                     """
                     );
+                }
+                System.out.println("""
+                        *********************************************************
+                        *        🔌📺 L I S T A   D E   T E L E V I S Õ E S 📺🔌       *
+                        *********************************************************
+                        --------------------------------------------------------- \n
+                        """);
+
+
+                int contador = 1;
+                for (Eletrodomesticos eletro : eletrodomesticos) {
+                    if (Objects.equals(eletro.getTipoProduto(), "Televisão")) {
+                        System.out.println(contador++ + " - Marca: " + eletro.getMarca() + "Nome: " + eletro.getnomeProduto() + "Valor: " + eletro.getValor());
+                    }
                 }
 
 

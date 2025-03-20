@@ -26,7 +26,7 @@ public class Eletrodomesticos extends Produto {
                 ", Nome: " + getnomeProduto() +
                 ", Valor: " + getValor() +
                 ", Descrição: " + getDescricao() +
-                ", Quantidade: " + getQuantidade();
+                ", Quantidade: " + getQuantidade() + "\n";
     }
 
 }
