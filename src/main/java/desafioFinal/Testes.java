@@ -1,4 +1,4 @@
-package desafioFinal.testes;
+package desafioFinal;
 
 public class Testes {
     public static void main(String[] args) {

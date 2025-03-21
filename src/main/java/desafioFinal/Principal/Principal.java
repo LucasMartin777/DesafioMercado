@@ -1,6 +1,7 @@
 package desafioFinal.Principal;
 
 import desafioFinal.calculos.SeparandoUnicos;
+import desafioFinal.mensagens.Mensagens;
 import desafioFinal.models.Eletrodomesticos;
 
 import java.util.*;
@@ -75,74 +76,22 @@ public class Principal {
 
 
         Scanner scanner = new Scanner(System.in);
+        Mensagens mensagens = new Mensagens();
 
 
-        System.out.println(
-                """
-                        *********************************************************
-                        *        🍞🛒 S I S T E M A   C L I   P Ã O   D E   A Ç Ú C A R 🛒🍞       *
-                        *********************************************************
-                        
-                        Bem-vindo ao CLI do Pão de Açúcar! 🍏🍞
-                        
-                        Você está acessando como:
-                        
-                        [1] 🛍️ Cliente
-                        [2] 🏢 Funcionário
-                        
-                        *********************************************************
-                        """);
+        mensagens.MensagemDeApresentacao();
         int opcao = scanner.nextInt();
 
         if (opcao == 1) {
-            System.out.println(
-                    """
-                            *********************************************************
-                            *        🍞🛒 S I S T E M A   C L I   P Ã O   D E   A Ç Ú C A R 🛒🍞       *
-                            *********************************************************
-                            
-                            
-                            
-                            
-                            Escolha uma das opções abaixo digitando o número correspondente:
-                            
-                            [1] 🥦 Comprar Alimento
-                            [2] 🔌 Comprar Eletrodoméstico
-                            [3] 🛍️ Visualizar Carrinho
-                            [4] 💳 Finalizar Compra
-                            
-                            *********************************************************
-                            """);
+            mensagens.tiposDeCompras();
             int opcao2 = scanner.nextInt();
             if (opcao2 == 2) {
-                System.out.println("""
-                                *********************************************************
-                                *        🔌📺 T I P O S   D E   E L E T R O D O M É S T I C O S 📺🔌       *
-                                *********************************************************
-                               \s
-                                Você selecionou a opção Eletrodomésticos.
-                               \s
-                                Escolha uma das opções abaixo digitando o número correspondente:
-                               \s
-                                [1] 📜 Ver produtos
-                                [2] 🔙 Voltar ao menu principal
-                        
-                        """);
+                mensagens.tiposDeEletrodomesticos();
                 int opcao3 = scanner.nextInt();
                 if (opcao3 == 1) {
-                    System.out.println(
-                            """
-                                    *********************************************************
-                                    *        🔌📺 T I P O S   D E   E L E T R O D O M É S T I C O S 📺🔌       *
-                                    *********************************************************
-                                    ---------------------------------------------------------
-                                    
-                                    
-                                    🔹 Tipos disponíveis:
-                                    
-                                    """);
+                    mensagens.tiposDeEletrodomesticosDisponiveis();
 
-                    ArrayList<String> teste = new ArrayList<>();
+                    ArrayList<String> criandoListaDeTiposDeProdutos = new ArrayList<>();
 
 
                     int contador2 = 1;
@@ -150,100 +99,100 @@ public class Principal {
 
 
                         System.out.println(contador2++ + " -- " + lista.getTipoProduto());
-                        teste.add(lista.getTipoProduto());
+                        criandoListaDeTiposDeProdutos.add(lista.getTipoProduto());
 
 
                     }
-                    System.out.println(teste);
+
 
 
                     int opcao4 = scanner.nextInt();
                     if (opcao4 == 1) {
 
 
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
 
                     } else if (opcao4 == 2) {
 
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 3) {
 
 
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 4) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
 
                     } else if (opcao4 == 5) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
 
                     } else if (opcao4 == 6) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 7) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 8) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 9) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 10) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 11) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 12) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 13) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 14) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 15) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 16) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 17) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 18) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 19) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     } else if (opcao4 == 20) {
-                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
 
                     }
