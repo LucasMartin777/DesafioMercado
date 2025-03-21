@@ -1,5 +1,6 @@
 package desafioFinal.Principal;
 
+import desafioFinal.calculos.SeparandoUnicos;
 import desafioFinal.models.Eletrodomesticos;
 
 import java.util.*;
@@ -68,7 +69,9 @@ public class Principal {
         eletrodomesticos.add(new Eletrodomesticos("Ventilador", "Britânia", "Turbo 40cm", 290, "Oscilação automática e motor potente", 32));
         eletrodomesticos.add(new Eletrodomesticos("Ventilador", "Cadence", "Ventisol 50cm", 350, "Design moderno e maior alcance de vento", 25));
 
+
         Collections.sort(eletrodomesticos);
+        LinkedHashSet<Eletrodomesticos> listaSemDuplicatas = new LinkedHashSet<>(eletrodomesticos);
 
 
         Scanner scanner = new Scanner(System.in);
@@ -133,33 +136,119 @@ public class Principal {
                                     *        🔌📺 T I P O S   D E   E L E T R O D O M É S T I C O S 📺🔌       *
                                     *********************************************************
                                     ---------------------------------------------------------
-                                    🔹 Tipos disponíveis:
-                                    [1] Televisão
-                                    [2] Geladeira
-                                    [3] Fogão
-                                    [4] Micro-ondas
-                                    [5] Aspirador de Pó
-                                    [6] Máquina de Lavar
-                                    [7] Ventilador
-                                    ---------------------------------------------------------
                                     
-                                    *********************************************************
-                                    """
-                    );
-                }
-                System.out.println("""
-                        *********************************************************
-                        *        🔌📺 L I S T A   D E   T E L E V I S Õ E S 📺🔌       *
-                        *********************************************************
-                        --------------------------------------------------------- \n
-                        """);
+                                    
+                                    🔹 Tipos disponíveis:
+                                    
+                                    """);
+
+                    ArrayList<String> teste = new ArrayList<>();
 
 
-                int contador = 1;
-                for (Eletrodomesticos eletro : eletrodomesticos) {
-                    if (Objects.equals(eletro.getTipoProduto(), "Televisão")) {
-                        System.out.println(contador++ + " - Marca: " + eletro.getMarca() + "Nome: " + eletro.getnomeProduto() + "Valor: " + eletro.getValor());
+                    int contador2 = 1;
+                    for (Eletrodomesticos lista : listaSemDuplicatas) {
+
+
+                        System.out.println(contador2++ + " -- " + lista.getTipoProduto());
+                        teste.add(lista.getTipoProduto());
+
+
                     }
+                    System.out.println(teste);
+
+
+                    int opcao4 = scanner.nextInt();
+                    if (opcao4 == 1) {
+
+
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+
+                    } else if (opcao4 == 2) {
+
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 3) {
+
+
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 4) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+
+                    } else if (opcao4 == 5) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+
+                    } else if (opcao4 == 6) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 7) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 8) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 9) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 10) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 11) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 12) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 13) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 14) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 15) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 16) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 17) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 18) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 19) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    } else if (opcao4 == 20) {
+                        SeparandoUnicos arCondicionado = new SeparandoUnicos(teste.get(opcao4 - 1));
+                        arCondicionado.contadors(eletrodomesticos);
+
+                    }
+
+
                 }
 
 

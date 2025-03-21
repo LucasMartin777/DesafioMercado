@@ -1,5 +1,8 @@
 package desafioFinal.models;
 
+import java.util.List;
+import java.util.Objects;
+
 public class Eletrodomesticos extends Produto {
 
 
@@ -13,9 +16,25 @@ public class Eletrodomesticos extends Produto {
         this.marca = marca;
     }
 
+
     public Eletrodomesticos(String tipoProduto, String marca, String nomeProduto, double valor, String descricao, int quantidade) {
         super(tipoProduto, nomeProduto, valor, descricao, quantidade);
         this.marca = marca;
+    }
+
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Eletrodomesticos that = (Eletrodomesticos) obj;
+        return Objects.equals(getTipoProduto(), that.getTipoProduto());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTipoProduto());
     }
 
     @Override
