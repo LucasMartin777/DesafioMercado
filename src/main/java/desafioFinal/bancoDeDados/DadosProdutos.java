@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DadosProdutos {
     public List<Eletrodomesticos> criandodadosProdutos() {
-        System.out.println("--------------------------------Criando a lista de produtos --------------------------------");
+
         List<Eletrodomesticos> eletrodomesticos = new ArrayList<>();
         eletrodomesticos.add(new Eletrodomesticos("Televisão", "LG", "TV LED 58' ", 4000, "bla bla bla", 40));
         eletrodomesticos.add(new Eletrodomesticos("Geladeira", "Brastemp", "Frost Free 400L", 3500, "Geladeira econômica e espaçosa", 50));

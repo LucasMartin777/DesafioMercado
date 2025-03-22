@@ -2,7 +2,7 @@ package desafioFinal.models.usuarios;
 
 public class Cliente extends Usuario {
     private double valorEmConta;
-    private double totalDoCarrinho;
+    private double totalDoCarrinho = 0;
 
     public Cliente(String nomeUsuario, String senhaUsuario, double valorEmConta) {
         super(nomeUsuario, senhaUsuario);
@@ -24,6 +24,14 @@ public class Cliente extends Usuario {
 
     public void setTotalDoCarrinho(double totalDoCarrinho) {
         this.totalDoCarrinho = totalDoCarrinho;
+    }
+
+    public void adicionandoNocarrinho(double adicionar) {
+        this.totalDoCarrinho = this.totalDoCarrinho + adicionar;
+    }
+
+    public void teste(double adicionando) {
+        this.totalDoCarrinho += adicionando;
     }
 
 

@@ -2,6 +2,7 @@ package desafioFinal.calculos;
 
 import desafioFinal.models.produtos.Eletrodomesticos;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -20,7 +21,7 @@ public class SeparandoUnicos {
         this.valor = valor;
     }
 
-    public void contadors(List<Eletrodomesticos> eletrodomesticos) {
+    public List<Eletrodomesticos> contadors(List<Eletrodomesticos> eletrodomesticos) {
         int contador = 1;
         System.out.println(String.format("""
                 *********************************************************
@@ -28,9 +29,12 @@ public class SeparandoUnicos {
                 *********************************************************
                 --------------------------------------------------------- \n
                 """, valor));
+        List<Eletrodomesticos> novaLista = new ArrayList<>();
         for (Eletrodomesticos eletro : eletrodomesticos) {
             if (Objects.equals(eletro.getTipoProduto(), valor)) {
                 System.out.println(contador++ + " - Marca: " + eletro.getMarca() + "   Nome: " + eletro.getnomeProduto() + "   Valor: " + eletro.getValor());
+                novaLista.add(eletro);
+
             }
         }
         System.out.println(
@@ -42,5 +46,7 @@ public class SeparandoUnicos {
                         
                         
                         """);
+
+        return novaLista;
     }
 }

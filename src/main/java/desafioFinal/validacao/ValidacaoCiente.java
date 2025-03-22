@@ -1,4 +1,4 @@
-package desafioFinal.validate;
+package desafioFinal.validacao;
 
 import desafioFinal.models.usuarios.Cliente;
 
@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ValidacaoCiente {
 
-    public void validadoCliente(List<Cliente> clientes){
+    public int validadoCliente(List<Cliente> clientes){
         System.out.println("Informe o nome do usuario:");
         Scanner scanner = new Scanner(System.in);
         String dado = scanner.nextLine();
@@ -16,18 +16,23 @@ public class ValidacaoCiente {
 
         Boolean encontrou = false;
         for (Cliente cliente : clientes) {
+
+
             if (cliente.getNomeUsuario().equals(dado) && cliente.getSenhaUsuario().equals(dado1)) {
 
                 encontrou = true;
                 System.out.println("Acesso Liberado");
-                break;
+
+                return clientes.indexOf(cliente); // estou pegando o indice do cliente para saber de qual cliente estou me referenciando
+
             }
         }
-        if (encontrou == true) {
+        if (encontrou) {
             System.out.println("Bem vindo");
         } else {
             System.out.println("Usuario ou senha invalido");
         }
+        return -2;
     }
 
 

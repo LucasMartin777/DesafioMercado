@@ -1,5 +1,7 @@
 package desafioFinal;
 
+import desafioFinal.models.usuarios.Cliente;
+
 public class Testes {
     public static void main(String[] args) {
         int item = 5;
@@ -12,8 +14,17 @@ public class Testes {
 
 
         System.out.println(mensagem);
+        Cliente teste = new Cliente("a", "a",0);
+        teste.teste(45.40);
+        teste.teste(45.40);
+        teste.teste(45.40);
+
+        System.out.println(teste.getTotalDoCarrinho());
 
     }
+
+
+
 
 
 }

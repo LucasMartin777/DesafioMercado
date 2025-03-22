@@ -9,7 +9,7 @@ public class DadosClientes {
 
 
     public List<Cliente> criandoListaCLientes() {
-        System.out.println("--------------------------------Criando lista de Clientes--------------------------------");
+
         List<Cliente> clientes = new ArrayList<>();
         clientes.add(new Cliente("LucasMartin", "senha123", 2000));
         clientes.add(new Cliente("Mariana Souza", "abc456", 3500));
@@ -27,7 +27,7 @@ public class DadosClientes {
         clientes.add(new Cliente("Beatriz Castro", "beatriz@987", 5300));
         clientes.add(new Cliente("Gustavo Henrique", "ghpass321", 2600));
         clientes.add(new Cliente("Larissa Almeida", "lariSenha", 4700));
-        clientes.add(new Cliente("Thiago Ramos", "thi789senha", 3800));
+        clientes.add(new Cliente("a", "a", 3800));
         clientes.add(new Cliente("Renata Ferreira", "renatinha12", 5500));
         clientes.add(new Cliente("Daniel Correia", "danielpass", 3000));
         clientes.add(new Cliente("Sabrina Lopes", "sabrin@321", 4000));
