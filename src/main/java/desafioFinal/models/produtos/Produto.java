@@ -1,4 +1,4 @@
-package desafioFinal.models;
+package desafioFinal.models.produtos;
 
 public class Produto implements Comparable<Produto> {
     private String tipoProduto;
@@ -6,7 +6,7 @@ public class Produto implements Comparable<Produto> {
     private double valor;
     private String descricao;     // descricao do produto se o cara quiser ver
     private int quantidade;
-    private static int totalNoCarrinho = 0;
+
 
 
     public Produto(String tipoProduto, String nomeProduto, double valor, String descricao, int quantidade) {
@@ -15,7 +15,7 @@ public class Produto implements Comparable<Produto> {
         this.valor = valor;
         this.descricao = descricao;
         this.quantidade = quantidade;
-        totalNoCarrinho += quantidade;
+
     }
 
     public String getTipoProduto() {
@@ -26,9 +26,7 @@ public class Produto implements Comparable<Produto> {
         this.tipoProduto = tipoProduto;
     }
 
-    public static int getTotalNoCarrinho() {
-        return totalNoCarrinho;
-    }
+
 
     public String getnomeProduto() {
         return nomeProduto;

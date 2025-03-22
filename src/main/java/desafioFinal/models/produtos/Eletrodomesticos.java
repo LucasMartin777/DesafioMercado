@@ -1,6 +1,5 @@
-package desafioFinal.models;
+package desafioFinal.models.produtos;
 
-import java.util.List;
 import java.util.Objects;
 
 public class Eletrodomesticos extends Produto {

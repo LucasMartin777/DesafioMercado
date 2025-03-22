@@ -2,12 +2,56 @@ package desafioFinal.Principal;
 
 import desafioFinal.calculos.SeparandoUnicos;
 import desafioFinal.mensagens.Mensagens;
-import desafioFinal.models.Eletrodomesticos;
+import desafioFinal.models.produtos.Eletrodomesticos;
+import desafioFinal.models.usuarios.Cliente;
 
 import java.util.*;
 
 public class Principal {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("--------------------------------Criando lista de Clientes--------------------------------");
+        List<Cliente> clientes = new ArrayList<>();
+        clientes.add(new Cliente("Lucas Martin", "senha123", 2000));
+        clientes.add(new Cliente("Mariana Souza", "abc456", 3500));
+        clientes.add(new Cliente("Fernando Lima", "pass789", 1500));
+        clientes.add(new Cliente("Camila Rocha", "secure987", 4200));
+        clientes.add(new Cliente("João Pedro", "mypassword", 2800));
+        clientes.add(new Cliente("Ana Beatriz", "senha321", 5000));
+        clientes.add(new Cliente("Roberto Carlos", "qwerty12", 1700));
+        clientes.add(new Cliente("Juliana Mendes", "juliana2024", 6200));
+        clientes.add(new Cliente("Carlos Alberto", "carlospass", 3400));
+        clientes.add(new Cliente("Patrícia Oliveira", "patty@123", 2900));
+        clientes.add(new Cliente("Ricardo Neves", "ric12345", 3100));
+        clientes.add(new Cliente("Vanessa Santos", "vanessa!789", 4100));
+        clientes.add(new Cliente("Felipe Moura", "felipepass", 2300));
+        clientes.add(new Cliente("Beatriz Castro", "beatriz@987", 5300));
+        clientes.add(new Cliente("Gustavo Henrique", "ghpass321", 2600));
+        clientes.add(new Cliente("Larissa Almeida", "lariSenha", 4700));
+        clientes.add(new Cliente("Thiago Ramos", "thi789senha", 3800));
+        clientes.add(new Cliente("Renata Ferreira", "renatinha12", 5500));
+        clientes.add(new Cliente("Daniel Correia", "danielpass", 3000));
+        clientes.add(new Cliente("Sabrina Lopes", "sabrin@321", 4000));
+
+        System.out.println("Informe o nome do usuario:");
+        String dado = scanner.nextLine();
+        System.out.println("Informe a senha do usuario:");
+        String dado1 = scanner.nextLine();
+
+
+        if (clientes.get(0).getNomeUsuario() == dado && clientes.get(0).getNomeUsuario() == dado1) {
+
+            System.out.println("Acesso Liberado");
+
+
+        } else {
+            System.out.println("Erro");
+            System.out.println(clientes.get(0));
+        }
+
+
+        System.out.println("--------------------------------Criando a lista de produtos --------------------------------");
         List<Eletrodomesticos> eletrodomesticos = new ArrayList<>();
         eletrodomesticos.add(new Eletrodomesticos("Televisão", "LG", "TV LED 58' ", 4000, "bla bla bla", 40));
         eletrodomesticos.add(new Eletrodomesticos("Geladeira", "Brastemp", "Frost Free 400L", 3500, "Geladeira econômica e espaçosa", 50));
@@ -75,7 +119,6 @@ public class Principal {
         LinkedHashSet<Eletrodomesticos> listaSemDuplicatas = new LinkedHashSet<>(eletrodomesticos);
 
 
-        Scanner scanner = new Scanner(System.in);
         Mensagens mensagens = new Mensagens();
 
 
@@ -105,13 +148,21 @@ public class Principal {
                     }
 
 
-
                     int opcao4 = scanner.nextInt();
                     if (opcao4 == 1) {
 
 
                         SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
+
+                        int opcao5 = scanner.nextInt();
+                        if (opcao5 == 1) {
+                            System.out.println(eletrodomesticos.get(opcao5).getValor());
+                            double valorAdicionado;
+                            valorAdicionado = eletrodomesticos.get(opcao5).getValor();
+
+
+                        }
 
 
                     } else if (opcao4 == 2) {
@@ -124,6 +175,7 @@ public class Principal {
 
                         SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
                         arCondicionado.contadors(eletrodomesticos);
+
 
                     } else if (opcao4 == 4) {
                         SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));

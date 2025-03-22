@@ -1,6 +1,6 @@
 package desafioFinal.calculos;
 
-import desafioFinal.models.Eletrodomesticos;
+import desafioFinal.models.produtos.Eletrodomesticos;
 
 import java.util.List;
 import java.util.Objects;
