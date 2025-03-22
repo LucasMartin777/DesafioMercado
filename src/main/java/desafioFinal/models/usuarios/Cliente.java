@@ -25,4 +25,18 @@ public class Cliente extends Usuario {
     public void setTotalDoCarrinho(double totalDoCarrinho) {
         this.totalDoCarrinho = totalDoCarrinho;
     }
+
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "valorEmConta=" + valorEmConta +
+                ", totalDoCarrinho=" + totalDoCarrinho +
+                ", Nome de Usuário='" + getNomeUsuario() + '\'' +
+                ", Senha de Usuário='" + getSenhaUsuario() + '\'' +
+                "}\n";
+    }
+
+
 }
+
