@@ -36,9 +36,16 @@ public class Principal {
         while (exit != 0) {
             mensagens.tiposDeCompras();
             int opcao2 = scanner.nextInt();
-            if (opcao2 == 2) {
+            while (opcao2 == 1) {
+                System.out.println("Alimentos");
+
+            }
+
+            while (opcao2 == 2) {
                 mensagens.tiposDeEletrodomesticos();
                 int opcao3 = scanner.nextInt();
+
+
                 while (opcao3 == 1) {
                     mensagens.tiposDeEletrodomesticosDisponiveis();
 
@@ -54,6 +61,7 @@ public class Principal {
 
 
                     }
+
                     System.out.println("0 -- voltar");
 
                     int opcao4 = scanner.nextInt();
@@ -165,13 +173,15 @@ public class Principal {
 
 
             }
-            System.out.println(" Deseja sair?");
-            int exits = scanner.nextInt();
-
-            if (exits == 1) {
-                exit = 0;
-                System.out.println("Obrigado por utilizar o sistema");
+            while (opcao2 == 3) {
+                System.out.println("Vizualizando carrinho");
+                break;
             }
+            while (opcao2 == 4) {
+                System.out.println("Finalizar compra");
+                break;
+            }
+
 
         }
 
