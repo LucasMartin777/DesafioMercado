@@ -15,6 +15,7 @@ public class Principal {
         Scanner scanner = new Scanner(System.in);
         Mensagens mensagens = new Mensagens();
         int indiceDoCliente;
+        int exit = 5;
 
         DadosClientes criandoDadosCliente = new DadosClientes();// Criando base de dados dos Clientes
         List<Cliente> clientes = criandoDadosCliente.criandoListaCLientes();
@@ -30,15 +31,15 @@ public class Principal {
 
 
         mensagens.MensagemDeApresentacao();
-        int opcao = scanner.nextInt();
 
-        if (opcao == 1) {
+
+        while (exit != 0) {
             mensagens.tiposDeCompras();
             int opcao2 = scanner.nextInt();
             if (opcao2 == 2) {
                 mensagens.tiposDeEletrodomesticos();
                 int opcao3 = scanner.nextInt();
-                if (opcao3 == 1) {
+                while (opcao3 == 1) {
                     mensagens.tiposDeEletrodomesticosDisponiveis();
 
                     ArrayList<String> criandoListaDeTiposDeProdutos = new ArrayList<>();
@@ -53,10 +54,13 @@ public class Principal {
 
 
                     }
-
+                    System.out.println("0 -- voltar");
 
                     int opcao4 = scanner.nextInt();
-                    if (opcao4 == 1) {
+                    if (opcao4 == 0) {
+                        opcao3 = 100;
+                    }
+                    while (opcao4 == 1) {
 
 
                         SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
@@ -64,26 +68,18 @@ public class Principal {
 
                         int opcao5 = scanner.nextInt();
 
-                        System.out.println("Valor q esta voltando " + lista.get(opcao5 - 1).getValor());
-
                         clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
 
                         System.out.println(clientes.get(indiceDoCliente));
 
+                        mensagens.continuarOAdd();
 
-                    } else if (opcao4 == 2) {
-
-//                        SeparandoUnicos arCondicionado = new SeparandoUnicos(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-//                        criandoDadosCliente
-//                                .criandoListaCLientes()
-//                                .get(indiceDoCliente)
-//                                .adicionandoNocarrinho(arCondicionado.contadors(dadosProdutos.criandodadosProdutos()));
+                        int opcao6 = scanner.nextInt();
+                        opcao4 = opcao6;
 
 
-                        System.out.println(criandoDadosCliente
-                                .criandoListaCLientes()
-                                .get(indiceDoCliente).getTotalDoCarrinho());
-
+                    }
+                    if (opcao4 == 2) {
 
                     } else if (opcao4 == 3) {
 
@@ -169,12 +165,22 @@ public class Principal {
 
 
             }
+            System.out.println(" Deseja sair?");
+            int exits = scanner.nextInt();
+
+            if (exits == 1) {
+                exit = 0;
+                System.out.println("Obrigado por utilizar o sistema");
+            }
 
         }
 
 
     }
+
+
 }
+
 
 
 

@@ -2,24 +2,25 @@ package desafioFinal.mensagens;
 
 public class Mensagens {
 
-    public void MensagemDeApresentacao(){
+    public void MensagemDeApresentacao() {
         System.out.println(
                 """
                         *********************************************************
                         *        🍞🛒 S I S T E M A   C L I   P Ã O   D E   A Ç Ú C A R 🛒🍞       *
                         *********************************************************
-
+                        
                         Bem-vindo ao CLI do Pão de Açúcar! 🍏🍞
-
+                        
                         Você está acessando como:
-
+                        
                         [1] 🛍️ Cliente
                         [2] 🏢 Funcionário
-
+                        
                         *********************************************************
                         """);
     }
-    public void tiposDeCompras(){
+
+    public void tiposDeCompras() {
         System.out.println(
                 """
                         *********************************************************
@@ -39,23 +40,25 @@ public class Mensagens {
                         *********************************************************
                         """);
     }
-    public void tiposDeEletrodomesticos(){
+
+    public void tiposDeEletrodomesticos() {
         System.out.println("""
-                                *********************************************************
-                                *        🔌📺 T I P O S   D E   E L E T R O D O M É S T I C O S 📺🔌       *
-                                *********************************************************
-                               \s
-                                Você selecionou a opção Eletrodomésticos.
-                               \s
-                                Escolha uma das opções abaixo digitando o número correspondente:
-                               \s
-                                [1] 📜 Ver produtos
-                                [2] 🔙 Voltar ao menu principal
-                        
-                        """);
+                        *********************************************************
+                        *        🔌📺 T I P O S   D E   E L E T R O D O M É S T I C O S 📺🔌       *
+                        *********************************************************
+                       \s
+                        Você selecionou a opção Eletrodomésticos.
+                       \s
+                        Escolha uma das opções abaixo digitando o número correspondente:
+                       \s
+                        [1] 📜 Ver produtos
+                        [2] 🔙 Voltar ao menu principal
+                
+                """);
 
     }
-    public void tiposDeEletrodomesticosDisponiveis(){
+
+    public void tiposDeEletrodomesticosDisponiveis() {
         System.out.println(
                 """
                         *********************************************************
@@ -68,5 +71,16 @@ public class Mensagens {
                         
                         """);
 
+    }
+
+    public void continuarOAdd() {
+        System.out.println(
+                """
+                                 Deseja continuar adicionar mais produtos?
+                                 1- Para continuar.
+                                 2- Para voltar.
+                        
+                        """
+        );
     }
 }

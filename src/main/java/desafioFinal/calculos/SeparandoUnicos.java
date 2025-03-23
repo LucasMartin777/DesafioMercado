@@ -38,8 +38,8 @@ public class SeparandoUnicos {
             }
         }
         System.out.println(
-                """
-                        
+                """ 
+                        0 - Voltar
                         ---------------------------------------------------------
                         
                         
