@@ -36,12 +36,14 @@ public class Mensagens {
                         [2] 🔌 Comprar Eletrodoméstico
                         [3] 🛍️ Visualizar Carrinho
                         [4] 💳 Finalizar Compra
+                        [0] ❌ Sair do Sistema 
+                        
                         
                         *********************************************************
                         """);
     }
 
-    public void tiposDeEletrodomesticos() {
+    public void verEletrodomesticos() {
         System.out.println("""
                         *********************************************************
                         *        🔌📺 T I P O S   D E   E L E T R O D O M É S T I C O S 📺🔌       *
@@ -56,6 +58,24 @@ public class Mensagens {
                 
                 """);
 
+    }
+
+    public void verAlimentos() {
+        System.out.println(
+                """
+                                ********************************************************* \s
+                                *        🍏🥩 T I P O S   D E   A L I M E N T O S 🥖🥛       * \s
+                                ********************************************************* \s
+                        
+                                Você selecionou a opção Alimentos. \s
+                        
+                                Escolha uma das opções abaixo digitando o número correspondente: \s
+                        
+                                [1] 📜 Ver produtos \s
+                                [2] 🔙 Voltar ao menu principal \s
+                        
+                        
+                        """);
     }
 
     public void tiposDeEletrodomesticosDisponiveis() {

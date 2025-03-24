@@ -1,12 +1,13 @@
-package desafioFinal.bancoDeDados;
+package desafioFinal.repositories;
 
+import desafioFinal.models.produtos.Alimentos;
 import desafioFinal.models.produtos.Eletrodomesticos;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DadosProdutos {
-    public List<Eletrodomesticos> criandodadosProdutos() {
+    public List<Eletrodomesticos> criandodadosProdutosEletrodomesticos() {
 
         List<Eletrodomesticos> eletrodomesticos = new ArrayList<>();
         eletrodomesticos.add(new Eletrodomesticos("Televisão", "LG", "TV LED 58' ", 4000, "bla bla bla", 40));
@@ -71,4 +72,64 @@ public class DadosProdutos {
         eletrodomesticos.add(new Eletrodomesticos("Ventilador", "Cadence", "Ventisol 50cm", 350, "Design moderno e maior alcance de vento", 25));
         return eletrodomesticos;
     }
+
+    public List<Alimentos> criandodadosProdutosAlimentos() {
+        List<Alimentos> alimentos = new ArrayList<>();
+        alimentos.add(new Alimentos("Frutas", "Morango", 10.99, "BlaBlaBla", 40, "30/03/2025", 900));
+        alimentos.add(new Alimentos("Frutas", "Morango", 10.99, "BlaBlaBla", 40, "30/03/2025", 900));
+        alimentos.add(new Alimentos("Frutas", "Banana", 5.49, "Fonte de potássio", 60, "15/04/2025", 1200));
+        alimentos.add(new Alimentos("Laticínios", "Leite Integral", 6.99, "Leite puro e fresco", 30, "10/05/2025", 1000));
+        alimentos.add(new Alimentos("Carnes", "Filé de Frango", 25.90, "Peito de frango sem osso", 20, "05/04/2025", 800));
+        alimentos.add(new Alimentos("Grãos", "Arroz Branco", 22.50, "Pacote de 5kg", 15, "20/12/2025", 5000));
+        alimentos.add(new Alimentos("Bebidas", "Suco de Laranja", 8.75, "100% Natural", 25, "02/06/2025", 1000));
+        alimentos.add(new Alimentos("Doces", "Chocolate Amargo", 12.99, "70% Cacau", 50, "12/08/2025", 500));
+        alimentos.add(new Alimentos("Massas", "Macarrão Espaguete", 7.80, "500g de macarrão", 35, "25/11/2025", 500));
+        alimentos.add(new Alimentos("Condimentos", "Molho de Tomate", 4.99, "Molho caseiro", 45, "18/09/2025", 350));
+        alimentos.add(new Alimentos("Bebidas", "Refrigerante Cola", 6.50, "2L de refrigerante", 55, "30/07/2025", 2000));
+        alimentos.add(new Alimentos("Frutas", "Maçã", 8.99, "Maçã Fuji fresca", 35, "10/04/2025", 1000));
+        alimentos.add(new Alimentos("Frutas", "Uva", 12.50, "Uva sem sementes", 25, "05/04/2025", 900));
+        alimentos.add(new Alimentos("Frutas", "Pera", 9.99, "Pera portuguesa", 30, "15/04/2025", 950));
+        alimentos.add(new Alimentos("Laticínios", "Queijo Mussarela", 18.99, "Queijo fatiado", 20, "20/05/2025", 500));
+        alimentos.add(new Alimentos("Laticínios", "Iogurte Natural", 4.50, "Iogurte sem açúcar", 40, "12/04/2025", 200));
+        alimentos.add(new Alimentos("Laticínios", "Manteiga", 9.75, "Manteiga sem sal", 25, "01/07/2025", 250));
+        alimentos.add(new Alimentos("Carnes", "Carne Moída", 29.90, "Patinho moído", 15, "06/04/2025", 1000));
+        alimentos.add(new Alimentos("Carnes", "Picanha", 79.99, "Picanha premium", 10, "10/04/2025", 1500));
+        alimentos.add(new Alimentos("Carnes", "Linguiça Toscana", 19.50, "Pacote de 1kg", 20, "12/04/2025", 1000));
+        alimentos.add(new Alimentos("Grãos", "Feijão Preto", 15.99, "Pacote de 1kg", 30, "22/12/2025", 1000));
+        alimentos.add(new Alimentos("Grãos", "Lentilha", 13.75, "Pacote de 500g", 20, "20/11/2025", 500));
+        alimentos.add(new Alimentos("Bebidas", "Água Mineral", 2.50, "Garrafa de 500ml", 100, "05/12/2025", 500));
+        alimentos.add(new Alimentos("Bebidas", "Cerveja Lager", 6.99, "Long neck 330ml", 50, "10/10/2025", 330));
+        alimentos.add(new Alimentos("Doces", "Bolo de Chocolate", 24.99, "Bolo caseiro", 10, "08/05/2025", 600));
+        alimentos.add(new Alimentos("Doces", "Biscoito Recheado", 3.99, "Pacote de 150g", 40, "15/09/2025", 150));
+        alimentos.add(new Alimentos("Massas", "Lasagna", 16.50, "Pronta para assar", 20, "18/10/2025", 900));
+        alimentos.add(new Alimentos("Massas", "Penne", 8.25, "500g de massa", 35, "25/11/2025", 500));
+        alimentos.add(new Alimentos("Condimentos", "Sal Rosa", 14.99, "1kg de sal do Himalaia", 30, "30/12/2026", 1000));
+        alimentos.add(new Alimentos("Condimentos", "Azeite de Oliva", 32.90, "500ml Extra Virgem", 15, "20/06/2026", 500));
+        alimentos.add(new Alimentos("Condimentos", "Ketchup", 7.99, "500g de ketchup", 25, "10/08/2025", 500));
+        alimentos.add(new Alimentos("Frutas", "Abacaxi", 14.99, "Abacaxi doce e suculento", 25, "10/05/2025", 2000));
+        alimentos.add(new Alimentos("Frutas", "Melancia", 22.50, "Melancia grande", 15, "05/06/2025", 5000));
+        alimentos.add(new Alimentos("Frutas", "Mamão", 9.99, "Mamão Papaia", 30, "20/04/2025", 1200));
+        alimentos.add(new Alimentos("Laticínios", "Queijo Parmesão", 29.99, "Queijo curado", 20, "15/07/2025", 400));
+        alimentos.add(new Alimentos("Laticínios", "Leite Desnatado", 6.49, "1 litro", 35, "25/05/2025", 1000));
+        alimentos.add(new Alimentos("Laticínios", "Iogurte de Morango", 5.25, "200ml", 50, "30/04/2025", 200));
+        alimentos.add(new Alimentos("Carnes", "Costela Bovina", 35.90, "Ideal para churrasco", 10, "12/04/2025", 2000));
+        alimentos.add(new Alimentos("Carnes", "Carne de Porco", 28.50, "Pernil sem osso", 15, "15/04/2025", 1800));
+        alimentos.add(new Alimentos("Carnes", "Salmão", 49.99, "Posta de salmão", 12, "08/04/2025", 1200));
+        alimentos.add(new Alimentos("Grãos", "Farinha de Trigo", 7.99, "Pacote de 1kg", 40, "10/10/2025", 1000));
+        alimentos.add(new Alimentos("Grãos", "Milho para Pipoca", 8.99, "500g", 30, "12/12/2025", 500));
+        alimentos.add(new Alimentos("Bebidas", "Chá Verde", 15.90, "Caixa com 20 sachês", 25, "10/09/2025", 100));
+        alimentos.add(new Alimentos("Bebidas", "Vinho Tinto Seco", 45.99, "750ml", 10, "20/07/2027", 750));
+        alimentos.add(new Alimentos("Doces", "Geleia de Morango", 13.99, "Pote de 300g", 20, "18/06/2025", 300));
+        alimentos.add(new Alimentos("Doces", "Pudim de Leite", 17.50, "Pote de 500g", 15, "30/05/2025", 500));
+        alimentos.add(new Alimentos("Massas", "Ravioli de Queijo", 19.99, "500g de massa recheada", 20, "22/09/2025", 500));
+        alimentos.add(new Alimentos("Massas", "Nhoque de Batata", 16.75, "500g", 30, "12/08/2025", 500));
+        alimentos.add(new Alimentos("Condimentos", "Mostarda", 6.50, "Frasco de 250g", 35, "05/10/2025", 250));
+        alimentos.add(new Alimentos("Condimentos", "Vinagre de Maçã", 9.80, "500ml", 20, "20/06/2026", 500));
+        alimentos.add(new Alimentos("Condimentos", "Orégano", 3.99, "Pacote de 50g", 40, "30/11/2026", 50));
+
+
+        return alimentos;
+    }
+
+
 }

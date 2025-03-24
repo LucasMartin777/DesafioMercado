@@ -1,4 +1,4 @@
-package desafioFinal.bancoDeDados;
+package desafioFinal.repositories;
 
 import desafioFinal.models.usuarios.Cliente;
 
