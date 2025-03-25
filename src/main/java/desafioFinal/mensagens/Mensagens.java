@@ -45,16 +45,16 @@ public class Mensagens {
 
     public void verEletrodomesticos() {
         System.out.println("""
-                        *********************************************************
-                        *        🔌📺 T I P O S   D E   E L E T R O D O M É S T I C O S 📺🔌       *
-                        *********************************************************
-                       \s
-                        Você selecionou a opção Eletrodomésticos.
-                       \s
-                        Escolha uma das opções abaixo digitando o número correspondente:
-                       \s
-                        [1] 📜 Ver produtos
-                        [2] 🔙 Voltar ao menu principal
+                *********************************************************
+                *        🔌📺 T I P O S   D E   E L E T R O D O M É S T I C O S 📺🔌       *
+                *********************************************************
+                
+                Você selecionou a opção Eletrodomésticos.
+                
+                Escolha uma das opções abaixo digitando o número correspondente:
+                
+                [1] 📜 Ver produtos
+                [2] 🔙 Voltar ao menu principal
                 
                 """);
 
@@ -63,16 +63,16 @@ public class Mensagens {
     public void verAlimentos() {
         System.out.println(
                 """
-                                ********************************************************* \s
-                                *        🍏🥩 T I P O S   D E   A L I M E N T O S 🥖🥛       * \s
-                                ********************************************************* \s
+                        ********************************************************* 
+                        *        🍏🥩 T I P O S   D E   A L I M E N T O S 🥖🥛       * 
+                        ********************************************************* 
                         
-                                Você selecionou a opção Alimentos. \s
+                        Você selecionou a opção Alimentos. \s
                         
-                                Escolha uma das opções abaixo digitando o número correspondente: \s
+                        Escolha uma das opções abaixo digitando o número correspondente: 
                         
-                                [1] 📜 Ver produtos \s
-                                [2] 🔙 Voltar ao menu principal \s
+                        [1] 📜 Ver produtos 
+                        [2] 🔙 Voltar ao menu principal 
                         
                         
                         """);
@@ -96,9 +96,9 @@ public class Mensagens {
     public void continuarOAdd() {
         System.out.println(
                 """
-                                 Deseja continuar adicionar mais produtos?
-                                 1- Para continuar.
-                                 2- Para voltar.
+                        Deseja continuar adicionar mais produtos?
+                        [1] Para continuar.
+                        [2] Para voltar.
                         
                         """
         );

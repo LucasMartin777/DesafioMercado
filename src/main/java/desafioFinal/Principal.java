@@ -1,4 +1,4 @@
-package desafioFinal.principal;
+package desafioFinal;
 
 import desafioFinal.repositories.DadosClientes;
 import desafioFinal.repositories.DadosProdutos;
