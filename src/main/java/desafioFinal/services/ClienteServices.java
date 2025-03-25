@@ -1,6 +1,15 @@
 package desafioFinal.services;
 
-public class CalcularCarrinho {
+import desafioFinal.models.usuarios.Cliente;
+
+public class ClienteServices {
+
+    private Cliente cliente;
+
+
+
+
+
 
     public double pagamentoFinal(double saldoEmConta, double valorTotalDaCompra) {
         double total = saldoEmConta - valorTotalDaCompra;

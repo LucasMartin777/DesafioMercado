@@ -2,12 +2,13 @@ package desafioFinal;
 
 import desafioFinal.repositories.DadosClientes;
 import desafioFinal.repositories.DadosProdutos;
-import desafioFinal.services.CalcularCarrinho;
-import desafioFinal.services.SeparadorMarca;
+import desafioFinal.services.ClienteServices;
+import desafioFinal.services.EletrodomesticosServices;
 import desafioFinal.mensagens.Mensagens;
 import desafioFinal.models.produtos.Eletrodomesticos;
 import desafioFinal.models.usuarios.Cliente;
 import desafioFinal.validacao.ValidacaoCiente;
+import desafioFinal.view.View;
 
 import java.util.*;
 
@@ -22,16 +23,21 @@ public class Principal {
         List<Cliente> clientes = criandoDadosCliente.criandoListaCLientes();
 
         DadosProdutos dadosProdutos = new DadosProdutos();//Criando base de dados dos Produtos
-        dadosProdutos.criandodadosProdutosEletrodomesticos();
+        List<Eletrodomesticos> produtosEletrodomesticos = dadosProdutos.criandodadosProdutosEletrodomesticos();
 
         ValidacaoCiente validacaoLogin = new ValidacaoCiente();// Validando o Login do usuario
-        indiceDoCliente = validacaoLogin.validadoCliente(criandoDadosCliente.criandoListaCLientes()); // atribuindo o indice
+        indiceDoCliente = validacaoLogin.validadoCliente(clientes); // atribuindo o indice
 
         Collections.sort(dadosProdutos.criandodadosProdutosEletrodomesticos());// Tirando os numeros duplicados
-        LinkedHashSet<Eletrodomesticos> listaSemDuplicatas = new LinkedHashSet<>(dadosProdutos.criandodadosProdutosEletrodomesticos());
+        LinkedHashSet<Eletrodomesticos> listaSemDuplicatas = new LinkedHashSet<>(produtosEletrodomesticos);
+
         System.out.println(" Printado lista sem duplicados " + listaSemDuplicatas);
 
-        CalcularCarrinho client = new CalcularCarrinho();//calculo do carrinho
+        ClienteServices client = new ClienteServices();//calculo do carrinho
+
+        ArrayList<String> criandoListaDeTiposDeProdutos = new ArrayList<>(); // Criando a lista de tipos de produtos
+
+        View testessss = new View();
 
 
         mensagens.MensagemDeApresentacao();
@@ -63,18 +69,8 @@ public class Principal {
                     while (opcao3 == 1) {
                         mensagens.tiposDeEletrodomesticosDisponiveis();
 
-                        ArrayList<String> criandoListaDeTiposDeProdutos = new ArrayList<>();
-
-
-                        int contador2 = 1;
-                        for (Eletrodomesticos lista : listaSemDuplicatas) {
-
-
-                            System.out.println(contador2++ + " -- " + lista.getTipoProduto());
-                            criandoListaDeTiposDeProdutos.add(lista.getTipoProduto());
-
-
-                        }
+                        EletrodomesticosServices eletrodomesticosServices = new EletrodomesticosServices();
+                        List<String> teste = eletrodomesticosServices.separandoPorTipoEletro(listaSemDuplicatas);
 
                         System.out.println("0 -- voltar");
 
@@ -85,488 +81,11 @@ public class Principal {
                         while (opcao4 == 1) {
 
 
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
+                            List<Eletrodomesticos> marcas = eletrodomesticosServices.separandoPorMarcaEletro(produtosEletrodomesticos, teste.get(opcao4 - 1));
+                            System.out.println(teste);
                             int opcao5 = scanner.nextInt();
                             if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 2) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 3) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 4) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 5) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 6) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 7) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 8) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 9) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 10) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 11) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 12) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 13) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 14) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 15) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 16) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 17) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 18) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 19) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
-
-
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
-
-                            }
-
-
-                        }
-                        while (opcao4 == 20) {
-
-
-                            SeparadorMarca arCondicionado = new SeparadorMarca(criandoListaDeTiposDeProdutos.get(opcao4 - 1));
-                            List<Eletrodomesticos> lista = arCondicionado.separandoPorMarcaEletro(dadosProdutos.criandodadosProdutosEletrodomesticos());
-
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(lista.get(opcao5 - 1).getValor());
-
+                                clientes.get(indiceDoCliente).adicionandoNocarrinho(marcas.get(opcao5 - 1).getValor());
                                 System.out.println(clientes.get(indiceDoCliente));
 
                                 mensagens.continuarOAdd();
@@ -596,28 +115,28 @@ public class Principal {
 
                     double valorDaCompra = clientes.get(indiceDoCliente).getTotalDoCarrinho();
                     double saldo = clientes.get(indiceDoCliente).getValorEmconta();
-                    client.pagamentoFinal(saldo,valorDaCompra);
+                    client.pagamentoFinal(saldo, valorDaCompra);
 
                     break;
                 }
-                while (opcao2 == 4) {
-                    System.out.println("Finalizar compra");
-                    break;
-                }
+                testessss.testess(opcao2);
+//                while (opcao2 == 4) {
+//                    System.out.println("Finalizar compra");
+//                    break;
+//                }
+
                 if (opcao2 == 0) {
                     System.out.println("Saindo do Sistema...");
                     exit = 0;
                 }
 
-
             }
+
 
         }
 
 
     }
-
-
 }
 
 

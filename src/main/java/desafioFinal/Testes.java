@@ -5,8 +5,7 @@ import desafioFinal.models.produtos.Eletrodomesticos;
 import desafioFinal.models.usuarios.Cliente;
 import desafioFinal.repositories.DadosClientes;
 import desafioFinal.repositories.DadosProdutos;
-import desafioFinal.services.CalcularCarrinho;
-import desafioFinal.services.SeparadorMarca;
+import desafioFinal.services.ClienteServices;
 import desafioFinal.validacao.ValidacaoCiente;
 
 import java.util.*;
@@ -31,7 +30,7 @@ public class Testes {
         LinkedHashSet<Eletrodomesticos> listaSemDuplicatas = new LinkedHashSet<>(dadosProdutos.criandodadosProdutosEletrodomesticos());
         System.out.println(" Printado lista sem duplicados " + listaSemDuplicatas);
 
-        CalcularCarrinho client = new CalcularCarrinho();//calculo do carrinho
+        ClienteServices client = new ClienteServices();//calculo do carrinho
 
 
         mensagens.MensagemDeApresentacao();

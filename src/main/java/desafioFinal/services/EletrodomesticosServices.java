@@ -3,25 +3,36 @@ package desafioFinal.services;
 import desafioFinal.models.produtos.Eletrodomesticos;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
 
-public class SeparadorMarca {
-    String valor;
+public class EletrodomesticosServices {
 
-    public SeparadorMarca(String valor) {
-        this.valor = valor;
+
+
+    public List<String> separandoPorTipoEletro(LinkedHashSet<Eletrodomesticos> listaSemDuplicatas) {
+        ArrayList<String> tipos = new ArrayList<>();
+
+        int contador2 = 1;
+
+
+        for (Eletrodomesticos lista : listaSemDuplicatas) {
+
+
+            System.out.println(contador2++ + " -- " + lista.getTipoProduto());
+            tipos.add(lista.getTipoProduto());
+
+
+        }
+
+
+        return tipos;
+
+
     }
 
-    public String getValor() {
-        return valor;
-    }
-
-    public void setValor(String valor) {
-        this.valor = valor;
-    }
-
-    public List<Eletrodomesticos> separandoPorMarcaEletro(List<Eletrodomesticos> eletrodomesticos) {
+    public List<Eletrodomesticos> separandoPorMarcaEletro(List<Eletrodomesticos> eletrodomesticos,String valor ) {
         int contador = 1;
         System.out.println(String.format("""
                 *********************************************************
