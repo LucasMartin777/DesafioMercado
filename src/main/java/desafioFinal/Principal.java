@@ -1,7 +1,9 @@
 package desafioFinal;
 
+import desafioFinal.models.produtos.Alimentos;
 import desafioFinal.repositories.DadosClientes;
 import desafioFinal.repositories.DadosProdutos;
+import desafioFinal.services.AlimentosServices;
 import desafioFinal.services.ClienteServices;
 import desafioFinal.services.EletrodomesticosServices;
 import desafioFinal.mensagens.Mensagens;
@@ -24,14 +26,19 @@ public class Principal {
 
         DadosProdutos dadosProdutos = new DadosProdutos();//Criando base de dados dos Produtos
         List<Eletrodomesticos> produtosEletrodomesticos = dadosProdutos.criandodadosProdutosEletrodomesticos();
+        List<Alimentos> produtosAlimentos = dadosProdutos.criandodadosProdutosAlimentos();
+
 
         ValidacaoCiente validacaoLogin = new ValidacaoCiente();// Validando o Login do usuario
         indiceDoCliente = validacaoLogin.validadoCliente(clientes); // atribuindo o indice
 
         Collections.sort(dadosProdutos.criandodadosProdutosEletrodomesticos());// Tirando os numeros duplicados
-        LinkedHashSet<Eletrodomesticos> listaSemDuplicatas = new LinkedHashSet<>(produtosEletrodomesticos);
+        Collections.sort(dadosProdutos.criandodadosProdutosAlimentos());// Tirando os numeros duplicados
+        LinkedHashSet<Eletrodomesticos> listaSemDuplicatasEletrodomesticos = new LinkedHashSet<>(produtosEletrodomesticos);
+        LinkedHashSet<Alimentos> listaSemDuplicatasAlimentos = new LinkedHashSet<>(produtosAlimentos);
 
-        System.out.println(" Printado lista sem duplicados " + listaSemDuplicatas);
+        System.out.println(" Printado lista sem duplicados " + listaSemDuplicatasEletrodomesticos);
+        System.out.println(" Printado lista sem duplicados " + listaSemDuplicatasAlimentos);
 
         ClienteServices client = new ClienteServices();//calculo do carrinho
 
@@ -46,18 +53,53 @@ public class Principal {
         if (tipoDeUsuario == 1) {
             while (exit != 0) {
                 mensagens.tiposDeCompras();
+
                 int opcao2 = scanner.nextInt();
                 while (opcao2 == 1) {
                     mensagens.verAlimentos();
+
+
                     int opcao3 = scanner.nextInt();
                     while (opcao3 == 1) {
-                        System.out.println("teste");
+
+                        AlimentosServices alimentosServices = new AlimentosServices();
+                        List<String> separandoPorTipoAlimento = alimentosServices.separandoPorTipoAlimentos(listaSemDuplicatasAlimentos);
+                        mensagens.volta();
+
                         int opcao4 = scanner.nextInt();
+                        if (opcao4 == 0) {
+                            opcao3 = 100;
+                        }
+                        while (opcao4 == 1) {
+
+
+                            List<Alimentos> marcas = alimentosServices.separandoPorMarcaAlimento(produtosAlimentos, separandoPorTipoAlimento.get(opcao4 - 1));
+                            System.out.println(separandoPorTipoAlimento);
+                            int opcao5 = scanner.nextInt();
+                            if (opcao5 > 0) {
+                                clientes.get(indiceDoCliente).adicionandoNocarrinho(marcas.get(opcao5 - 1).getValor());
+                                System.out.println(clientes.get(indiceDoCliente));
+
+                                mensagens.continuarOAdd();
+
+                                int opcao6 = scanner.nextInt();
+                                opcao4 = opcao6;
+
+
+                            } else if (opcao5 == 0) {
+                                opcao4 = 0;
+
+                            }
+
+
+                        }
+
 
                     }
                     if (opcao3 == 2) {
                         opcao2 = 666;
                     }
+
 
                 }
 
@@ -70,9 +112,9 @@ public class Principal {
                         mensagens.tiposDeEletrodomesticosDisponiveis();
 
                         EletrodomesticosServices eletrodomesticosServices = new EletrodomesticosServices();
-                        List<String> teste = eletrodomesticosServices.separandoPorTipoEletro(listaSemDuplicatas);
+                        List<String> separandoPorTipoEletro = eletrodomesticosServices.separandoPorTipoEletro(listaSemDuplicatasEletrodomesticos);
 
-                        System.out.println("0 -- voltar");
+                        mensagens.volta();
 
                         int opcao4 = scanner.nextInt();
                         if (opcao4 == 0) {
@@ -81,8 +123,8 @@ public class Principal {
                         while (opcao4 == 1) {
 
 
-                            List<Eletrodomesticos> marcas = eletrodomesticosServices.separandoPorMarcaEletro(produtosEletrodomesticos, teste.get(opcao4 - 1));
-                            System.out.println(teste);
+                            List<Eletrodomesticos> marcas = eletrodomesticosServices.separandoPorMarcaEletro(produtosEletrodomesticos, separandoPorTipoEletro.get(opcao4 - 1));
+                            System.out.println(separandoPorTipoEletro);
                             int opcao5 = scanner.nextInt();
                             if (opcao5 > 0) {
                                 clientes.get(indiceDoCliente).adicionandoNocarrinho(marcas.get(opcao5 - 1).getValor());

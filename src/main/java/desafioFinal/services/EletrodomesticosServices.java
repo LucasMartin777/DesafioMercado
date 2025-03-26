@@ -10,7 +10,6 @@ import java.util.Objects;
 public class EletrodomesticosServices {
 
 
-
     public List<String> separandoPorTipoEletro(LinkedHashSet<Eletrodomesticos> listaSemDuplicatas) {
         ArrayList<String> tipos = new ArrayList<>();
 
@@ -32,7 +31,7 @@ public class EletrodomesticosServices {
 
     }
 
-    public List<Eletrodomesticos> separandoPorMarcaEletro(List<Eletrodomesticos> eletrodomesticos,String valor ) {
+    public List<Eletrodomesticos> separandoPorMarcaEletro(List<Eletrodomesticos> eletrodomesticos, String valor) {
         int contador = 1;
         System.out.println(String.format("""
                 *********************************************************
@@ -61,18 +60,5 @@ public class EletrodomesticosServices {
         return listaDeMarcaEletro;
     }
 
-//    public List<Alimentos> tiposDeAlimentos(List<Alimentos> alimentos){
-//        System.out.println(String.format("""
-//                *********************************************************
-//                *        🍏 L I S T A   D E   %s 🍽️       *
-//                *********************************************************
-//                --------------------------------------------------------- \n
-//                """, valor));
-//        List<Alimentos> listaTiposAlimentos = new ArrayList<>();
-//        for (Alimentos alimento : alimentos){
-//
-//        }
-//
-//        return
-//    }
+
 }
