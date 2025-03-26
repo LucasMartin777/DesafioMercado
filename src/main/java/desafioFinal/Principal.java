@@ -35,7 +35,6 @@ public class Principal {
 
         ClienteServices client = new ClienteServices();//calculo do carrinho
 
-        ArrayList<String> criandoListaDeTiposDeProdutos = new ArrayList<>(); // Criando a lista de tipos de produtos
 
         View testessss = new View();
 
@@ -43,7 +42,8 @@ public class Principal {
         mensagens.MensagemDeApresentacao();
         int tipoDeUsuario = scanner.nextInt();
 
-        while (tipoDeUsuario == 1) {
+
+        if (tipoDeUsuario == 1) {
             while (exit != 0) {
                 mensagens.tiposDeCompras();
                 int opcao2 = scanner.nextInt();
@@ -132,6 +132,11 @@ public class Principal {
 
             }
 
+
+        }
+
+        if (tipoDeUsuario == 2) {
+            System.out.println("Acesso funcionario");
 
         }
 
