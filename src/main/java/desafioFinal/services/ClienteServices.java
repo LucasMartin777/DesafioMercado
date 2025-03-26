@@ -7,18 +7,14 @@ public class ClienteServices {
     private Cliente cliente;
 
 
-
-
-
-
-    public double pagamentoFinal(double saldoEmConta, double valorTotalDaCompra) {
+    public void pagamentoFinal(double saldoEmConta, double valorTotalDaCompra) {
         double total = saldoEmConta - valorTotalDaCompra;
         if (total < 0) {
             System.out.println("Saldo insuficiente");
         } else {
-            System.out.println("Realizando o pagamento");
+            System.out.println("Valor total da compra é: " + total);
         }
-        return total;
+
     }
 
 }
