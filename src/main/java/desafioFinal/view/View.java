@@ -1,13 +1,14 @@
 package desafioFinal.view;
 
 import desafioFinal.mensagens.Mensagens;
+import desafioFinal.models.carrinhos.Carrinho;
 import desafioFinal.models.produtos.Alimentos;
 import desafioFinal.models.produtos.Eletrodomesticos;
 import desafioFinal.models.usuarios.Cliente;
 import desafioFinal.repositories.DadosClientes;
 import desafioFinal.repositories.DadosProdutos;
 import desafioFinal.services.AlimentosServices;
-import desafioFinal.services.ClienteServices;
+import desafioFinal.services.CarrinhoDeCompraServices;
 import desafioFinal.services.EletrodomesticosServices;
 import desafioFinal.validacao.ValidacaoCiente;
 
@@ -44,10 +45,7 @@ public class View {
         System.out.println(" Printado lista sem duplicados " + listaSemDuplicatasEletrodomesticos);
         System.out.println(" Printado lista sem duplicados " + listaSemDuplicatasAlimentos);
 
-        ClienteServices client = new ClienteServices();//calculo do carrinho
-
-
-        View testessss = new View();
+        CarrinhoDeCompraServices totalCarrinho = new CarrinhoDeCompraServices();// metodo onde contem o total do carrinho
 
 
         mensagens.MensagemDeApresentacao();
@@ -64,6 +62,7 @@ public class View {
 
 
                     int opcao3 = scanner.nextInt();
+
                     while (opcao3 == 1) {
 
                         AlimentosServices alimentosServices = new AlimentosServices();
@@ -74,30 +73,33 @@ public class View {
                         if (opcao4 == 0) {
                             opcao3 = 100;
                         }
-                        while (opcao4 == 1) {
+
+                        for (int i = 0; i <= 20; i++) {
 
 
-                            List<Alimentos> marcas = alimentosServices.separandoPorMarcaAlimento(produtosAlimentos, separandoPorTipoAlimento.get(opcao4 - 1));
-                            System.out.println(separandoPorTipoAlimento);
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(marcas.get(opcao5 - 1).getValor());
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
+                            while (opcao4 == i) {
 
 
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
+                                List<Alimentos> marcas = alimentosServices.separandoPorMarcaAlimento(produtosAlimentos, separandoPorTipoAlimento.get(opcao4 - 1));
+
+                                int opcao5 = scanner.nextInt();
+
+                                if (opcao5 > 0) {
+                                    Carrinho novo = new Carrinho(marcas.get(opcao5 - 1).getnomeProduto(), marcas.get(opcao5 - 1).getValor());
+                                    totalCarrinho.produtosNoCarrinho(novo);
+
+
+                                    mensagens.continuarOAdd();
+
+                                } else if (opcao5 == 0) {
+                                    i = 21;
+                                    opcao3 = 0;
+
+                                }
+
 
                             }
-
-
                         }
-
 
                     }
                     if (opcao3 == 2) {
@@ -124,27 +126,28 @@ public class View {
                         if (opcao4 == 0) {
                             opcao3 = 100;
                         }
-                        while (opcao4 == 1) {
+                        for (int i = 0; i <= 20; i++) {
 
 
-                            List<Eletrodomesticos> marcas = eletrodomesticosServices.separandoPorMarcaEletro(produtosEletrodomesticos, separandoPorTipoEletro.get(opcao4 - 1));
-                            System.out.println(separandoPorTipoEletro);
-                            int opcao5 = scanner.nextInt();
-                            if (opcao5 > 0) {
-                                clientes.get(indiceDoCliente).adicionandoNocarrinho(marcas.get(opcao5 - 1).getValor());
-                                System.out.println(clientes.get(indiceDoCliente));
-
-                                mensagens.continuarOAdd();
-
-                                int opcao6 = scanner.nextInt();
-                                opcao4 = opcao6;
+                            while (opcao4 == i) {
 
 
-                            } else if (opcao5 == 0) {
-                                opcao4 = 0;
+                                List<Eletrodomesticos> marcas = eletrodomesticosServices.separandoPorMarcaEletro(produtosEletrodomesticos, separandoPorTipoEletro.get(opcao4 - 1));
 
+                                int opcao5 = scanner.nextInt();
+
+                                if (opcao5 > 0) {
+                                    Carrinho novo = new Carrinho(marcas.get(opcao5 - 1).getnomeProduto(), marcas.get(opcao5 - 1).getValor());
+                                    totalCarrinho.produtosNoCarrinho(novo);
+                                    mensagens.continuarOAdd();
+
+
+                                } else if (opcao5 == 0) {
+                                    i = 21;
+                                    opcao3 = 0;
+
+                                }
                             }
-
 
                         }
 
@@ -158,18 +161,35 @@ public class View {
                 }
                 while (opcao2 == 3) {
                     System.out.println("Vizualizando carrinho");
+                    System.out.println(totalCarrinho.getTotalCarrinho());
 
-                    double valorDaCompra = clientes.get(indiceDoCliente).getTotalDoCarrinho();
-                    double saldo = clientes.get(indiceDoCliente).getValorEmconta();
-                    client.pagamentoFinal(saldo, valorDaCompra);
+                    System.out.println("Deseja adicionar mais itens ou finalizar a compra?:");
+                    System.out.println("1-- Continuar comprando");
+                    System.out.println("2-- Pagar");
 
-                    break;
+                    int opcao6 = scanner.nextInt();
+
+                    if (opcao6 == 1) {
+                        opcao2 = 1;
+
+
+                    } else if (opcao2 == 2) {
+                        opcao2 = 4;
+
+                    }
+
+
                 }
 
-//                while (opcao2 == 4) {
-//                    System.out.println("Finalizar compra");
-//                    break;
-//                }
+                while (opcao2 == 4) {
+                    System.out.println("Pagando a vista");
+                    totalCarrinho.pagarContaAVista(clientes.get(indiceDoCliente));
+
+                    System.out.println("Compra finalizada, obrigado por usar nosso sistema");
+                    opcao2 = 66;
+
+
+                }
 
                 if (opcao2 == 0) {
                     System.out.println("Saindo do Sistema...");

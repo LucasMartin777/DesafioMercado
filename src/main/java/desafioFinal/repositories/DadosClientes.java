@@ -34,6 +34,10 @@ public class DadosClientes {
         return clientes;
 
     }
+    public void criacoes(){
+        DadosClientes criandoDadosCliente = new DadosClientes();// Criando base de dados dos Clientes
+        List<Cliente> clientes = criandoDadosCliente.criandoListaCLientes();
+    }
 
 
 }

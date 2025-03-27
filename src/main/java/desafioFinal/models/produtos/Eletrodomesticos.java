@@ -22,7 +22,6 @@ public class Eletrodomesticos extends Produto {
     }
 
 
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
