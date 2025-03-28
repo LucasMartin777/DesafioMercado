@@ -17,7 +17,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Scanner;
 
-public class View {
+public class ViewCliente {
 
 
     public void rodandoApp() {
