@@ -13,10 +13,6 @@ public class Usuario {
         return nomeUsuario;
     }
 
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
-    }
-
     public String getSenhaUsuario() {
         return senhaUsuario;
     }

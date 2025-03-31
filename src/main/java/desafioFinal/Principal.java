@@ -1,10 +1,10 @@
 package desafioFinal;
 
-import desafioFinal.view.ViewCliente;
+import desafioFinal.view.View;
 
 public class Principal {
     public static void main(String[] args) {
-        ViewCliente inicio = new ViewCliente();
+        View inicio = new View();
         inicio.rodandoApp();
 
 
