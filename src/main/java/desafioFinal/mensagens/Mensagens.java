@@ -104,6 +104,17 @@ public class Mensagens {
         );
     }
 
+    public static void tipoDeUsuario() {
+        System.out.println(
+                """
+                        Por gentileza, escolher o tipo de usuario?
+                        [1] Para Cliente.
+                        [2] Para Funcionario.
+                        
+                        """
+        );
+    }
+
     public void volta() {
         System.out.println("0 -- voltar");
     }

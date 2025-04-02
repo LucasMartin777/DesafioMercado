@@ -1,7 +1,6 @@
 package desafioFinal.services;
 
 import desafioFinal.models.produtos.Alimentos;
-import desafioFinal.models.produtos.Eletrodomesticos;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;

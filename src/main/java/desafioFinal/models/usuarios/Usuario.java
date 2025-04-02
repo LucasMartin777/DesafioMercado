@@ -17,8 +17,5 @@ public class Usuario {
         return senhaUsuario;
     }
 
-    public void setSenhaUsuario(String senhaUsuario) {
-        this.senhaUsuario = senhaUsuario;
-    }
 
 }

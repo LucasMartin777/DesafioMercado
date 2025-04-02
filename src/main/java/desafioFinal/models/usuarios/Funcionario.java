@@ -1,10 +1,12 @@
 package desafioFinal.models.usuarios;
 
 public class Funcionario extends Usuario {
-    private int id;
+    private String cargo;
+    private double salario;
 
-    public Funcionario(String nomeUsuario, String senhaUsuario,int id) {
+    public Funcionario(String nomeUsuario, String senhaUsuario, String cargo, double salario) {
         super(nomeUsuario, senhaUsuario);
-        this.id = id;
+        this.cargo = cargo;
+        this.salario = salario;
     }
 }
