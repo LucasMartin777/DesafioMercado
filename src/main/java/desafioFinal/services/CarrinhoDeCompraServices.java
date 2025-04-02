@@ -10,9 +10,6 @@ public class CarrinhoDeCompraServices {
     static private List<Carrinho> totalCarrinho = new ArrayList<>();
     static private double valorTotalDaCompra;
 
-    public double getValorTotalDaCompra() {
-        return valorTotalDaCompra;
-    }
 
     public void produtosNoCarrinho(Carrinho carrinho) {
         totalCarrinho.add(carrinho);

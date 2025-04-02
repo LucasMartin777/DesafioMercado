@@ -5,42 +5,29 @@ import desafioFinal.models.carrinhos.Carrinho;
 import desafioFinal.models.produtos.Alimentos;
 import desafioFinal.models.produtos.Eletrodomesticos;
 import desafioFinal.models.usuarios.Cliente;
-import desafioFinal.repositories.DadosClientes;
 import desafioFinal.repositories.DadosProdutos;
 import desafioFinal.services.AlimentosServices;
 import desafioFinal.services.CarrinhoDeCompraServices;
 import desafioFinal.services.EletrodomesticosServices;
 import desafioFinal.validacao.ValidacaoCiente;
 
-import java.util.Collections;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Scanner;
 
 public class ViewCliente {
 
 
-    public static void runViewClient() {
+    public void runViewClient(List<Cliente> clientes) {
         Scanner scanner = new Scanner(System.in);
         Mensagens mensagens = new Mensagens();
         int indiceDoCliente;
         int exit = 5;
 
-        DadosClientes criandoDadosCliente = new DadosClientes();// Criando base de dados dos Clientes
-        List<Cliente> clientes = criandoDadosCliente.criandoListaCLientes();
-
-        DadosProdutos dadosProdutos = new DadosProdutos();//Criando base de dados dos Produtos
-        List<Eletrodomesticos> produtosEletrodomesticos = dadosProdutos.criandodadosProdutosEletrodomesticos();
-        List<Alimentos> produtosAlimentos = dadosProdutos.criandodadosProdutosAlimentos();
-
 
         ValidacaoCiente validacaoLogin = new ValidacaoCiente();// Validando o Login do usuario
         indiceDoCliente = validacaoLogin.validadoCliente(clientes); // atribuindo o indice
+        System.out.println("Bem Vindo " + clientes.get(indiceDoCliente).getNomeUsuario());
 
-        Collections.sort(dadosProdutos.criandodadosProdutosEletrodomesticos());// Tirando os numeros duplicados
-        Collections.sort(dadosProdutos.criandodadosProdutosAlimentos());// Tirando os numeros duplicados
-        LinkedHashSet<Eletrodomesticos> listaSemDuplicatasEletrodomesticos = new LinkedHashSet<>(produtosEletrodomesticos);
-        LinkedHashSet<Alimentos> listaSemDuplicatasAlimentos = new LinkedHashSet<>(produtosAlimentos);
 
         CarrinhoDeCompraServices totalCarrinho = new CarrinhoDeCompraServices();// metodo onde contem o total do carrinho
 
@@ -58,7 +45,7 @@ public class ViewCliente {
                 while (opcao3 == 1) {
 
                     AlimentosServices alimentosServices = new AlimentosServices();
-                    List<String> separandoPorTipoAlimento = alimentosServices.separandoPorTipoAlimentos(listaSemDuplicatasAlimentos);
+                    List<String> separandoPorTipoAlimento = alimentosServices.separandoPorTipoAlimentos(DadosProdutos.getListaSemDuplicatasAlimentos());
                     mensagens.volta();
 
                     int opcao4 = scanner.nextInt();
@@ -70,7 +57,7 @@ public class ViewCliente {
 
 
                         while (opcao4 == i) {
-                            List<Alimentos> marcas = alimentosServices.separandoPorMarcaAlimento(produtosAlimentos, separandoPorTipoAlimento.get(opcao4 - 1));
+                            List<Alimentos> marcas = alimentosServices.separandoPorMarcaAlimento(DadosProdutos.getAlimentos(), separandoPorTipoAlimento.get(opcao4 - 1));
 
                             int opcao5 = scanner.nextInt();
 
@@ -96,7 +83,7 @@ public class ViewCliente {
                     mensagens.tiposDeEletrodomesticosDisponiveis();
 
                     EletrodomesticosServices eletrodomesticosServices = new EletrodomesticosServices();
-                    List<String> separandoPorTipoEletro = eletrodomesticosServices.separandoPorTipoEletro(listaSemDuplicatasEletrodomesticos);
+                    List<String> separandoPorTipoEletro = eletrodomesticosServices.separandoPorTipoEletro(DadosProdutos.getListaSemDuplicatasEletrodomesticos());
 
                     mensagens.volta();
 
@@ -108,7 +95,7 @@ public class ViewCliente {
 
                         while (opcao4 == i) {
 
-                            List<Eletrodomesticos> marcas = eletrodomesticosServices.separandoPorMarcaEletro(produtosEletrodomesticos, separandoPorTipoEletro.get(opcao4 - 1));
+                            List<Eletrodomesticos> marcas = eletrodomesticosServices.separandoPorMarcaEletro(DadosProdutos.getEletrodomesticos(), separandoPorTipoEletro.get(opcao4 - 1));
 
                             int opcao5 = scanner.nextInt();
 

@@ -4,12 +4,21 @@ import desafioFinal.models.produtos.Alimentos;
 import desafioFinal.models.produtos.Eletrodomesticos;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public class DadosProdutos {
-    public List<Eletrodomesticos> criandodadosProdutosEletrodomesticos() {
 
-        List<Eletrodomesticos> eletrodomesticos = new ArrayList<>();
+    private static List<Eletrodomesticos> eletrodomesticos = new ArrayList<>();
+    private static List<Alimentos> alimentos = new ArrayList<>();
+    private static LinkedHashSet<Eletrodomesticos> listaSemDuplicatasEletrodomesticos = new LinkedHashSet<>(eletrodomesticos);
+    private static LinkedHashSet<Alimentos> listaSemDuplicatasAlimentos = new LinkedHashSet<>(alimentos);
+
+
+    static {
+
+
         eletrodomesticos.add(new Eletrodomesticos("Televisão", "LG", "TV LED 58' ", 4000, "bla bla bla", 40));
         eletrodomesticos.add(new Eletrodomesticos("Geladeira", "Brastemp", "Frost Free 400L", 3500, "Geladeira econômica e espaçosa", 50));
         eletrodomesticos.add(new Eletrodomesticos("Micro-ondas", "Electrolux", "30L Inox", 800, "Micro-ondas potente com painel digital", 15));
@@ -70,11 +79,12 @@ public class DadosProdutos {
         eletrodomesticos.add(new Eletrodomesticos("Máquina de Lavar", "Consul", "Automática 8kg", 2200, "Ideal para quem mora sozinho", 15));
         eletrodomesticos.add(new Eletrodomesticos("Ventilador", "Britânia", "Turbo 40cm", 290, "Oscilação automática e motor potente", 32));
         eletrodomesticos.add(new Eletrodomesticos("Ventilador", "Cadence", "Ventisol 50cm", 350, "Design moderno e maior alcance de vento", 25));
-        return eletrodomesticos;
+        Collections.sort(DadosProdutos.eletrodomesticos);
+
     }
 
-    public List<Alimentos> criandodadosProdutosAlimentos() {
-        List<Alimentos> alimentos = new ArrayList<>();
+    static {
+
         alimentos.add(new Alimentos("Frutas", "Morango", 10.99, "BlaBlaBla", 40, "30/03/2025", 900));
         alimentos.add(new Alimentos("Frutas", "Morango", 10.99, "BlaBlaBla", 40, "30/03/2025", 900));
         alimentos.add(new Alimentos("Frutas", "Banana", 5.49, "Fonte de potássio", 60, "15/04/2025", 1200));
@@ -126,8 +136,29 @@ public class DadosProdutos {
         alimentos.add(new Alimentos("Condimentos", "Mostarda", 6.50, "Frasco de 250g", 35, "05/10/2025", 250));
         alimentos.add(new Alimentos("Condimentos", "Vinagre de Maçã", 9.80, "500ml", 20, "20/06/2026", 500));
         alimentos.add(new Alimentos("Condimentos", "Orégano", 3.99, "Pacote de 50g", 40, "30/11/2026", 50));
+        Collections.sort(DadosProdutos.alimentos);
+        LinkedHashSet<Eletrodomesticos> listaSemDuplicatasEletrodomesticos = new LinkedHashSet<>(eletrodomesticos);
 
 
+    }
+
+    public static LinkedHashSet<Alimentos> getListaSemDuplicatasAlimentos() {
+        if (listaSemDuplicatasAlimentos == null) {
+            listaSemDuplicatasAlimentos = new LinkedHashSet<>(alimentos);
+        }
+        return listaSemDuplicatasAlimentos;
+    }
+
+
+    public static LinkedHashSet<Eletrodomesticos> getListaSemDuplicatasEletrodomesticos() {
+        return listaSemDuplicatasEletrodomesticos;
+    }
+
+    public static List<Eletrodomesticos> getEletrodomesticos() {
+        return eletrodomesticos;
+    }
+
+    public static List<Alimentos> getAlimentos() {
         return alimentos;
     }
 

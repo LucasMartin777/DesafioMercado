@@ -3,14 +3,17 @@ package desafioFinal.repositories;
 import desafioFinal.models.usuarios.Cliente;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DadosClientes {
+    private static List<Cliente> clientes = new ArrayList<>();
 
 
-    public List<Cliente> criandoListaCLientes() {
 
-        List<Cliente> clientes = new ArrayList<>();
+    static {
+
+
         clientes.add(new Cliente("LucasMartin", "senha123", 2000));
         clientes.add(new Cliente("Mariana Souza", "abc456", 3500));
         clientes.add(new Cliente("Fernando Lima", "pass789", 1500));
@@ -31,13 +34,12 @@ public class DadosClientes {
         clientes.add(new Cliente("Renata Ferreira", "renatinha12", 5500));
         clientes.add(new Cliente("Daniel Correia", "danielpass", 3000));
         clientes.add(new Cliente("Sabrina Lopes", "sabrin@321", 4000));
+        Collections.sort(DadosClientes.clientes);
+
+    }
+
+
+    public static List<Cliente> getClientes() {
         return clientes;
-
     }
-    public void criacoes(){
-        DadosClientes criandoDadosCliente = new DadosClientes();// Criando base de dados dos Clientes
-        List<Cliente> clientes = criandoDadosCliente.criandoListaCLientes();
-    }
-
-
 }

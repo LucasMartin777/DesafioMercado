@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DadosFuncionarios {
-    public List<Funcionario> criandoListaFuncionario() {
-        List<Funcionario> funcionarios = new ArrayList<>();
+    public static List<Funcionario> funcionarios = new ArrayList<>();
+    static {
+
         funcionarios.add(new Funcionario("a", "a", "ADMIN", 666));
         funcionarios.add(new Funcionario("Lucas Silva", "abc", "Estoquista", 2500));
         funcionarios.add(new Funcionario("Maria Oliveira", "def", "Caixa", 2200));
@@ -16,6 +17,5 @@ public class DadosFuncionarios {
         funcionarios.add(new Funcionario("Carlos Pereira", "mno", "Estoquista", 2400));
         funcionarios.add(new Funcionario("Fernanda Lima", "pqr", "Caixa", 2100));
 
-        return funcionarios;
     }
 }

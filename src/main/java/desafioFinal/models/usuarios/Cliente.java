@@ -1,6 +1,6 @@
 package desafioFinal.models.usuarios;
 
-public class Cliente extends Usuario {
+public class Cliente extends Usuario  {
     private double valorEmConta;
 
 
@@ -14,8 +14,6 @@ public class Cliente extends Usuario {
     }
 
 
-
-
     @Override
     public String toString() {
         return "Cliente{" +
@@ -24,6 +22,7 @@ public class Cliente extends Usuario {
                 ", Senha de Usuário='" + getSenhaUsuario() + '\'' +
                 "}\n";
     }
+
 
 
 }

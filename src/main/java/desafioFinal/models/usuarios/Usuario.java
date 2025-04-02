@@ -1,6 +1,6 @@
 package desafioFinal.models.usuarios;
 
-public class Usuario {
+public class Usuario implements Comparable<Usuario> {
     private String nomeUsuario;
     private String senhaUsuario;
 
@@ -18,4 +18,8 @@ public class Usuario {
     }
 
 
+    @Override
+    public int compareTo(Usuario o) {
+        return this.getNomeUsuario().compareTo(o.getNomeUsuario());
+    }
 }

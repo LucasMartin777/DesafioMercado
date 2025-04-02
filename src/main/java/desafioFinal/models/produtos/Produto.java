@@ -8,7 +8,6 @@ public class Produto implements Comparable<Produto> {
     private int quantidade;
 
 
-
     public Produto(String tipoProduto, String nomeProduto, double valor, String descricao, int quantidade) {
         this.tipoProduto = tipoProduto;
         this.nomeProduto = nomeProduto;
@@ -22,42 +21,24 @@ public class Produto implements Comparable<Produto> {
         return tipoProduto;
     }
 
-    public void setTipoProduto(String tipoProduto) {
-        this.tipoProduto = tipoProduto;
-    }
-
-
 
     public String getnomeProduto() {
         return nomeProduto;
     }
 
-    public void setnomeProduto(String nome) {
-        this.nomeProduto = nomeProduto;
-    }
 
     public int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
 
     public String getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
     public double getValor() {
         return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
     }
 
 
