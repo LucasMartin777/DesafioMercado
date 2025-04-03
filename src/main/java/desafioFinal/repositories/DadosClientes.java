@@ -10,7 +10,6 @@ public class DadosClientes {
     private static List<Cliente> clientes = new ArrayList<>();
 
 
-
     static {
 
 

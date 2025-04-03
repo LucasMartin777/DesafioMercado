@@ -27,7 +27,7 @@ public class Carrinho {
 
     @Override
     public String toString() {
-        return String.format("📦 Carrinho de Compras 🛒\nProduto: %s\nValor: R$ %.2f", tipoPodruto, valorProduto);
+        return String.format("\nProduto: %s\nValor: R$ %.2f ***********\n", tipoPodruto, valorProduto);
     }
 
 }

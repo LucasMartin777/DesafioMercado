@@ -3,10 +3,12 @@ package desafioFinal.repositories;
 import desafioFinal.models.usuarios.Funcionario;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DadosFuncionarios {
     public static List<Funcionario> funcionarios = new ArrayList<>();
+
     static {
 
         funcionarios.add(new Funcionario("a", "a", "ADMIN", 666));
@@ -16,6 +18,10 @@ public class DadosFuncionarios {
         funcionarios.add(new Funcionario("Ana Costa", "jkl", "Vendedora", 2000));
         funcionarios.add(new Funcionario("Carlos Pereira", "mno", "Estoquista", 2400));
         funcionarios.add(new Funcionario("Fernanda Lima", "pqr", "Caixa", 2100));
+        Collections.sort(DadosFuncionarios.funcionarios);
+    }
 
+    public static List<Funcionario> getFuncionarios() {
+        return funcionarios;
     }
 }

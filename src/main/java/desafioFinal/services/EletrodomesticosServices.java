@@ -10,7 +10,7 @@ import java.util.Objects;
 public class EletrodomesticosServices {
 
 
-    public List<String> separandoPorTipoEletro(LinkedHashSet<Eletrodomesticos> listaSemDuplicatas) {
+    public static List<String> separandoPorTipoEletro(LinkedHashSet<Eletrodomesticos> listaSemDuplicatas) {
         ArrayList<String> tipos = new ArrayList<>();
 
         int contador2 = 1;
@@ -31,7 +31,7 @@ public class EletrodomesticosServices {
 
     }
 
-    public List<Eletrodomesticos> separandoPorMarcaEletro(List<Eletrodomesticos> eletrodomesticos, String valor) {
+    public static List<Eletrodomesticos> separandoPorMarcaEletro(List<Eletrodomesticos> eletrodomesticos, String valor) {
         int contador = 1;
         System.out.println(String.format("""
                 *********************************************************

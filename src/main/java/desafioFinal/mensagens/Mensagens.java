@@ -118,4 +118,7 @@ public class Mensagens {
     public void volta() {
         System.out.println("0 -- voltar");
     }
+    public void saindoDoSistema() {
+        System.out.println("Obrigado por escolher nosso sistema, até logo");
+    }
 }

@@ -1,11 +1,13 @@
 package desafioFinal.view;
 
-import desafioFinal.repositories.DadosFuncionarios;
+import desafioFinal.models.usuarios.Funcionario;
+
+import java.util.List;
 
 public class ViewFuncionario {
-    public static void runViewFuncionario() {
+    public static void runViewFuncionario(List<Funcionario> funcionarios) {
 
-        DadosFuncionarios listaFuncionarios = new DadosFuncionarios();
+
 
     }
 }

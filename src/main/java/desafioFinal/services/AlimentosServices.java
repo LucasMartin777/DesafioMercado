@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public class AlimentosServices {
 
-    public List<Alimentos> separandoPorMarcaAlimento(List<Alimentos> alimentos, String valor) {
+    public static List<Alimentos> separandoPorMarcaAlimento(List<Alimentos> alimentos, String valor) {
         int contador = 1;
         System.out.println(String.format("""
                 *********************************************************
@@ -38,7 +38,7 @@ public class AlimentosServices {
         return listaTiposAlimentos;
     }
 
-    public List<String> separandoPorTipoAlimentos(LinkedHashSet<Alimentos> listaSemDuplicatas) {
+    public static List<String> separandoPorTipoAlimentos(LinkedHashSet<Alimentos> listaSemDuplicatas) {
         ArrayList<String> tipos = new ArrayList<>();
 
         int contador2 = 1;

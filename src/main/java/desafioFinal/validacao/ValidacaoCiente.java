@@ -5,7 +5,7 @@ import desafioFinal.models.usuarios.Cliente;
 import java.util.List;
 import java.util.Scanner;
 
-public class ValidacaoCiente {
+public class  ValidacaoCiente {
 
     public int validadoCliente(List<Cliente> clientes){
         System.out.println("Informe o nome do usuario:");

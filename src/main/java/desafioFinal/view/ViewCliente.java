@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class ViewCliente {
 
 
-    public void runViewClient(List<Cliente> clientes) {
+    public static void  runViewClient(List<Cliente> clientes) {
         Scanner scanner = new Scanner(System.in);
         Mensagens mensagens = new Mensagens();
         int indiceDoCliente;
@@ -27,9 +27,6 @@ public class ViewCliente {
         ValidacaoCiente validacaoLogin = new ValidacaoCiente();// Validando o Login do usuario
         indiceDoCliente = validacaoLogin.validadoCliente(clientes); // atribuindo o indice
         System.out.println("Bem Vindo " + clientes.get(indiceDoCliente).getNomeUsuario());
-
-
-        CarrinhoDeCompraServices totalCarrinho = new CarrinhoDeCompraServices();// metodo onde contem o total do carrinho
 
 
         while (exit != 0) {
@@ -44,8 +41,7 @@ public class ViewCliente {
 
                 while (opcao3 == 1) {
 
-                    AlimentosServices alimentosServices = new AlimentosServices();
-                    List<String> separandoPorTipoAlimento = alimentosServices.separandoPorTipoAlimentos(DadosProdutos.getListaSemDuplicatasAlimentos());
+                    List<String> separandoPorTipoAlimento = AlimentosServices.separandoPorTipoAlimentos(DadosProdutos.getListaSemDuplicatasAlimentos());
                     mensagens.volta();
 
                     int opcao4 = scanner.nextInt();
@@ -57,13 +53,13 @@ public class ViewCliente {
 
 
                         while (opcao4 == i) {
-                            List<Alimentos> marcas = alimentosServices.separandoPorMarcaAlimento(DadosProdutos.getAlimentos(), separandoPorTipoAlimento.get(opcao4 - 1));
+                            List<Alimentos> marcas = AlimentosServices.separandoPorMarcaAlimento(DadosProdutos.getAlimentos(), separandoPorTipoAlimento.get(opcao4 - 1));
 
                             int opcao5 = scanner.nextInt();
 
                             if (opcao5 > 0) {
                                 Carrinho novo = new Carrinho(marcas.get(opcao5 - 1).getnomeProduto(), marcas.get(opcao5 - 1).getValor());
-                                totalCarrinho.produtosNoCarrinho(novo);
+                                CarrinhoDeCompraServices.produtosNoCarrinho(novo);
                             }
                             break;
                         }
@@ -82,8 +78,7 @@ public class ViewCliente {
                 while (opcao3 == 1) {
                     mensagens.tiposDeEletrodomesticosDisponiveis();
 
-                    EletrodomesticosServices eletrodomesticosServices = new EletrodomesticosServices();
-                    List<String> separandoPorTipoEletro = eletrodomesticosServices.separandoPorTipoEletro(DadosProdutos.getListaSemDuplicatasEletrodomesticos());
+                    List<String> separandoPorTipoEletro = EletrodomesticosServices.separandoPorTipoEletro(DadosProdutos.getListaSemDuplicatasEletrodomesticos());
 
                     mensagens.volta();
 
@@ -95,13 +90,13 @@ public class ViewCliente {
 
                         while (opcao4 == i) {
 
-                            List<Eletrodomesticos> marcas = eletrodomesticosServices.separandoPorMarcaEletro(DadosProdutos.getEletrodomesticos(), separandoPorTipoEletro.get(opcao4 - 1));
+                            List<Eletrodomesticos> marcas = EletrodomesticosServices.separandoPorMarcaEletro(DadosProdutos.getEletrodomesticos(), separandoPorTipoEletro.get(opcao4 - 1));
 
                             int opcao5 = scanner.nextInt();
 
                             if (opcao5 > 0) {
                                 Carrinho novo = new Carrinho(marcas.get(opcao5 - 1).getnomeProduto(), marcas.get(opcao5 - 1).getValor());
-                                totalCarrinho.produtosNoCarrinho(novo);
+                                CarrinhoDeCompraServices.produtosNoCarrinho(novo);
                             }
                             break;
                         }
@@ -112,8 +107,8 @@ public class ViewCliente {
                 }
             }
             while (opcao2 == 3) {
-                System.out.println("Vizualizando carrinho");
-                System.out.println(totalCarrinho.getTotalCarrinho());
+                System.out.println("******************** 🛒 Vizualizando carrinho 🛒******************** ");
+                System.out.println(CarrinhoDeCompraServices.getValorTotalDaCompra());
 
                 System.out.println("Deseja adicionar mais itens ou finalizar a compra?:");
                 System.out.println("1-- Continuar comprando");
@@ -131,15 +126,15 @@ public class ViewCliente {
             }
 
             while (opcao2 == 4) {
-                System.out.println("Pagando a vista");
-                totalCarrinho.pagarContaAVista(clientes.get(indiceDoCliente));
 
-                System.out.println("Compra finalizada, obrigado por usar nosso sistema");
+                CarrinhoDeCompraServices.
+                        pagarContaAVista(clientes.get(indiceDoCliente));
                 opcao2 = 66;
+
             }
 
             if (opcao2 == 0) {
-                System.out.println("Saindo do Sistema...");
+                mensagens.saindoDoSistema();
                 exit = 0;
             }
         }

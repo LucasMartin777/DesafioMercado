@@ -12,8 +12,6 @@ public class DadosProdutos {
 
     private static List<Eletrodomesticos> eletrodomesticos = new ArrayList<>();
     private static List<Alimentos> alimentos = new ArrayList<>();
-    private static LinkedHashSet<Eletrodomesticos> listaSemDuplicatasEletrodomesticos = new LinkedHashSet<>(eletrodomesticos);
-    private static LinkedHashSet<Alimentos> listaSemDuplicatasAlimentos = new LinkedHashSet<>(alimentos);
 
 
     static {
@@ -137,10 +135,14 @@ public class DadosProdutos {
         alimentos.add(new Alimentos("Condimentos", "Vinagre de Maçã", 9.80, "500ml", 20, "20/06/2026", 500));
         alimentos.add(new Alimentos("Condimentos", "Orégano", 3.99, "Pacote de 50g", 40, "30/11/2026", 50));
         Collections.sort(DadosProdutos.alimentos);
-        LinkedHashSet<Eletrodomesticos> listaSemDuplicatasEletrodomesticos = new LinkedHashSet<>(eletrodomesticos);
 
 
     }
+
+    private static LinkedHashSet<Eletrodomesticos> listaSemDuplicatasEletrodomesticos = new LinkedHashSet<>(eletrodomesticos);
+    private static LinkedHashSet<Alimentos> listaSemDuplicatasAlimentos = new LinkedHashSet<>(alimentos);
+
+
 
     public static LinkedHashSet<Alimentos> getListaSemDuplicatasAlimentos() {
         if (listaSemDuplicatasAlimentos == null) {

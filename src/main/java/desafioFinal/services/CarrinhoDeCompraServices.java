@@ -11,23 +11,29 @@ public class CarrinhoDeCompraServices {
     static private double valorTotalDaCompra;
 
 
-    public void produtosNoCarrinho(Carrinho carrinho) {
+    public static void produtosNoCarrinho(Carrinho carrinho) {
         totalCarrinho.add(carrinho);
         valorTotalDaCompra += carrinho.getValorProduto();
 
 
     }
 
+    public static double getValorTotalDaCompra() {
+        return valorTotalDaCompra;
+    }
+
     public List<Carrinho> getTotalCarrinho() {
         return totalCarrinho;
     }
 
-    public void pagarContaAVista(Cliente cliente) {
+    public static void pagarContaAVista(Cliente cliente) {
         double pagamento = cliente.getValorEmconta() - valorTotalDaCompra;
+        System.out.println("Pagando a vista");
         if (pagamento < 0) {
             System.out.println("Cartao recusado, deseja parcelar?");
         } else {
-            System.out.println("Pagamento realizado com sucesso, volte sempre : " + pagamento);
+            System.out.println("Pagamento realizado com sucesso! " + pagamento);
+            System.out.println("Fatura : " + pagamento);
         }
 
     }
