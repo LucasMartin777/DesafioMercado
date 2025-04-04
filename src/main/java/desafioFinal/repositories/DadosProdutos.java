@@ -143,7 +143,6 @@ public class DadosProdutos {
     private static LinkedHashSet<Alimentos> listaSemDuplicatasAlimentos = new LinkedHashSet<>(alimentos);
 
 
-
     public static LinkedHashSet<Alimentos> getListaSemDuplicatasAlimentos() {
         if (listaSemDuplicatasAlimentos == null) {
             listaSemDuplicatasAlimentos = new LinkedHashSet<>(alimentos);
@@ -162,6 +161,13 @@ public class DadosProdutos {
 
     public static List<Alimentos> getAlimentos() {
         return alimentos;
+    }
+
+    public static void adicionarProdutoEletro(Eletrodomesticos novoELetro) {
+        eletrodomesticos.add((novoELetro));
+    }
+    public static void adicionarProdutoAli(Alimentos novoALi) {
+        alimentos.add((novoALi));
     }
 
 

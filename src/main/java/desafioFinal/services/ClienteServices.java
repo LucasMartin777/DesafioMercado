@@ -1,19 +1,12 @@
 package desafioFinal.services;
 
-import desafioFinal.models.usuarios.Cliente;
+import static desafioFinal.repositories.DadosClientes.clientes;
 
 public class ClienteServices {
 
-    private Cliente cliente;
 
-
-    public void pagamentoFinal(double saldoEmConta, double valorTotalDaCompra) {
-        double total = saldoEmConta - valorTotalDaCompra;
-        if (total < 0) {
-            System.out.println("Saldo insuficiente");
-        } else {
-            System.out.println("Valor total da compra é: " + total);
-        }
+    public static void apresentacao(int indiceDoCliente) {
+        System.out.println("Bem Vindo " + clientes.get(indiceDoCliente).getNomeUsuario());
 
     }
 

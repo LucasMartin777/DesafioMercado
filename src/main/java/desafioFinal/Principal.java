@@ -7,9 +7,3 @@ public class Principal {
         ViewService.runApp();
     }
 }
-
-
-
-
-
-

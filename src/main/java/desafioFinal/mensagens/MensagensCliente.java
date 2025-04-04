@@ -1,8 +1,8 @@
 package desafioFinal.mensagens;
 
-public class Mensagens {
+public class MensagensCliente {
 
-    public void MensagemDeApresentacao() {
+    public static void MensagemDeApresentacao() {
         System.out.println(
                 """
                         *********************************************************
@@ -20,7 +20,7 @@ public class Mensagens {
                         """);
     }
 
-    public void tiposDeCompras() {
+    public static void tiposDeCompras() {
         System.out.println(
                 """
                         *********************************************************
@@ -43,7 +43,7 @@ public class Mensagens {
                         """);
     }
 
-    public void verEletrodomesticos() {
+    public static void verEletrodomesticos() {
         System.out.println("""
                 *********************************************************
                 *        🔌📺 T I P O S   D E   E L E T R O D O M É S T I C O S 📺🔌       *
@@ -60,7 +60,7 @@ public class Mensagens {
 
     }
 
-    public void verAlimentos() {
+    public static void verAlimentos() {
         System.out.println(
                 """
                         ********************************************************* 
@@ -78,7 +78,7 @@ public class Mensagens {
                         """);
     }
 
-    public void tiposDeEletrodomesticosDisponiveis() {
+    public static void tiposDeEletrodomesticosDisponiveis() {
         System.out.println(
                 """
                         *********************************************************
@@ -93,7 +93,7 @@ public class Mensagens {
 
     }
 
-    public void continuarOAdd() {
+    public static void continuarOAdd() {
         System.out.println(
                 """
                         Deseja continuar adicionar mais produtos?
@@ -115,10 +115,10 @@ public class Mensagens {
         );
     }
 
-    public void volta() {
+    public static void volta() {
         System.out.println("0 -- voltar");
     }
-    public void saindoDoSistema() {
+    public static void saindoDoSistema() {
         System.out.println("Obrigado por escolher nosso sistema, até logo");
     }
 }

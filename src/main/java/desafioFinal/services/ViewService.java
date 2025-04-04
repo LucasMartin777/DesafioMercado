@@ -1,6 +1,6 @@
 package desafioFinal.services;
 
-import desafioFinal.mensagens.Mensagens;
+import desafioFinal.mensagens.MensagensCliente;
 import desafioFinal.repositories.DadosClientes;
 import desafioFinal.repositories.DadosFuncionarios;
 import desafioFinal.view.ViewCliente;
@@ -13,7 +13,7 @@ public class ViewService {
 
     public static void runApp() {
         Scanner op = new Scanner(System.in);
-        Mensagens.tipoDeUsuario();
+        MensagensCliente.tipoDeUsuario();
         int op1 = op.nextInt();
         if (op1 == 1) {
             ViewCliente.runViewClient(DadosClientes.getClientes());

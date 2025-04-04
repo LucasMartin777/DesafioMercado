@@ -17,4 +17,15 @@ public class Funcionario extends Usuario {
         this.cargo = cargo;
         this.salario = salario;
     }
+
+    @Override
+    public String toString() {
+        return "Funcionario{" +
+                "cargo='" + cargo + '\'' +
+                ", salario=" + salario +
+                ", Nome de Usuário='" + getNomeUsuario() + '\'' +
+                ", Senha de Usuário='" + getSenhaUsuario() + '\'' +
+                "}\n";
+    }
+
 }

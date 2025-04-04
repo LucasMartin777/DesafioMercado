@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class DadosClientes {
-    private static List<Cliente> clientes = new ArrayList<>();
+    public static List<Cliente> clientes = new ArrayList<>();
 
 
     static {

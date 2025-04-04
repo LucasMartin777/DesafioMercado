@@ -38,5 +38,13 @@ public class CarrinhoDeCompraServices {
 
     }
 
+    public static void vizualizarCarrinho(){
+        System.out.println("******************** 🛒 Vizualizando carrinho 🛒******************** ");
+        System.out.println(CarrinhoDeCompraServices.getValorTotalDaCompra());
+        System.out.println("Deseja adicionar mais itens ou finalizar a compra?:");
+        System.out.println("1-- Continuar comprando");
+        System.out.println("2-- Pagar");
+    }
+
 
 }
