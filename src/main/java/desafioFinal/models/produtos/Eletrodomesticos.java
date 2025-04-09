@@ -34,12 +34,12 @@ public class Eletrodomesticos extends Produto {
     @Override
 
     public String toString() {
-        return "Tipo do Produto: " + getTipoProduto() +
+        return "\nTipo do Produto: " + getTipoProduto() +
                 ", Marca: " + marca +
                 ", Nome: " + getnomeProduto() +
                 ", Valor: " + getValor() +
                 ", Descrição: " + getDescricao() +
-                ", Quantidade: " + getQuantidade() + "\n";
+                ", Quantidade: " + getQuantidade();
     }
 
 }

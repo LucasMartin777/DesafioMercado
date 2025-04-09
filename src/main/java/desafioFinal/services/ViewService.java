@@ -13,7 +13,7 @@ public class ViewService {
 
     public static void runApp() {
         Scanner op = new Scanner(System.in);
-        MensagensCliente.tipoDeUsuario();
+        MensagensCliente.mensagemDeApresentacao();
         int op1 = op.nextInt();
         if (op1 == 1) {
             ViewCliente.runViewClient(DadosClientes.getClientes());

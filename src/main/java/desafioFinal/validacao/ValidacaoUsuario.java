@@ -10,11 +10,16 @@ import java.util.Scanner;
 public class ValidacaoUsuario {
 
     public static int validadoCliente(List<Cliente> clientes) {
-        System.out.println("Informe o nome do usuario:");
         Scanner scanner = new Scanner(System.in);
+        System.out.print("""
+                ╔═══════════════════════════════════════╗
+                ║        VALIDAÇÃO DE CLIENTE          ║
+                ╚═══════════════════════════════════════╝
+                → Nome do usuário: """);
         String dado = scanner.nextLine();
-        System.out.println("Informe a senha do usuario:");
+        System.out.print("→ Senha do usuário: ");
         String dado1 = scanner.nextLine();
+
 
         Boolean encontrou = false;
         for (Cliente cliente : clientes) {

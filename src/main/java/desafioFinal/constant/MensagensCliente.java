@@ -2,7 +2,7 @@ package desafioFinal.constant;
 
 public class MensagensCliente {
 
-    public static void MensagemDeApresentacao() {
+    public static void mensagemDeApresentacao() {
 
         System.out.println(
                 """

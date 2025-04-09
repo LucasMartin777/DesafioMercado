@@ -31,13 +31,13 @@ public class Alimentos extends Produto {
 
     @Override
     public String toString() {
-        return "Tipo do Produto: " + getTipoProduto() +
+        return "\nTipo do Produto: " + getTipoProduto() +
                 ", Nome: " + getnomeProduto() +
                 ", Valor: " + getValor() +
                 ", Descrição: " + getDescricao() +
                 ", Quantidade: " + getQuantidade() +
                 ", Validade: " + validade +
-                ", Peso: " + peso + "kg\n";
+                ", Peso: " + peso + "kg";
     }
 
 
