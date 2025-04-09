@@ -1,6 +1,6 @@
 package desafioFinal.view;
 
-import desafioFinal.mensagens.MensagensFuncionario;
+import desafioFinal.constant.MensagensFuncionario;
 import desafioFinal.models.usuarios.Funcionario;
 import desafioFinal.repositories.DadosProdutos;
 import desafioFinal.services.FuncionarioServices;

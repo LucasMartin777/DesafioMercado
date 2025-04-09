@@ -1,8 +1,9 @@
-package desafioFinal.mensagens;
+package desafioFinal.constant;
 
 public class MensagensCliente {
 
     public static void MensagemDeApresentacao() {
+
         System.out.println(
                 """
                         *********************************************************

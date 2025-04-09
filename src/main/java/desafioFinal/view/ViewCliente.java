@@ -1,6 +1,6 @@
 package desafioFinal.view;
 
-import desafioFinal.mensagens.MensagensCliente;
+import desafioFinal.constant.MensagensCliente;
 import desafioFinal.models.carrinhos.Carrinho;
 import desafioFinal.models.produtos.Alimentos;
 import desafioFinal.models.produtos.Eletrodomesticos;

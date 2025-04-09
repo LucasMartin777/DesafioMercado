@@ -1,4 +1,4 @@
-package desafioFinal.mensagens;
+package desafioFinal.constant;
 
 public class MensagensFuncionario {
 
