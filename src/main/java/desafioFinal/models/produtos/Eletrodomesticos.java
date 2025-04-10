@@ -17,6 +17,9 @@ public class Eletrodomesticos extends Produto {
         this.marca = marca;
     }
 
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
 
     @Override
     public boolean equals(Object obj) {

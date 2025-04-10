@@ -16,6 +16,22 @@ public class Alimentos extends Produto {
 
     }
 
+    public String getValidade() {
+        return validade;
+    }
+
+    public void setValidade(String validade) {
+        this.validade = validade;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
