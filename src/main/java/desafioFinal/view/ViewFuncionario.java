@@ -39,20 +39,17 @@ public class ViewFuncionario {
             }
             while (op1 == 2) {
                 MensagensFuncionario.tipoDeListaProduto();
-                int op2 = scanner.nextInt();
+                int op4 = scanner.nextInt();
 
-                if (op2 == 1) {
+                if (op4 == 1) {
                     FuncionarioServices.alterandoAlimento();
                 }
-
-                if (op2 == 2) {
+                if (op4 == 2) {
                     FuncionarioServices.alterandoEletrodomestico();
                 }
-                if (op2 == 0) {
+                if (op4 == 0) {
                     break;
 
-                } else {
-                    System.out.println("Valor inválido");
                 }
             }
             while (op1 == 3) {
@@ -61,8 +58,12 @@ public class ViewFuncionario {
                 if (op3 == 1) {
                     FuncionarioServices.removendoAlimento();
                 }
-                if (op3 == 2) {
-                    FuncionarioServices.removendoEletrodomestico();
+//                if (op3 == 2) {
+//                    FuncionarioServices.removendoEletrodomestico();
+//                }
+                if (op3 == 0) {
+                    break;
+
                 }
             }
         }

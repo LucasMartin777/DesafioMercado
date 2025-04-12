@@ -231,11 +231,32 @@ public class FuncionarioServices {
         }
 
     }
+
     public static void removendoAlimento() {
+        Scanner scanner = new Scanner(System.in);
 
-    }
-    public static void removendoEletrodomestico() {
+        System.out.println(DadosProdutos.getAlimentos());
+        System.out.println("Informe o nome do alimento que deseja editar");
+        String nomeAlimento = scanner.nextLine();
 
+
+        for (Alimentos alimento : DadosProdutos.getAlimentos()) {
+            if (Objects.equals(alimento.getnomeProduto().toLowerCase(), nomeAlimento.toLowerCase())) {
+                System.out.println("Voce deseja deletar o " + alimento + "?");
+                System.out.println("1 para s e 2 para nao");
+                int resposta = scanner.nextInt();
+                if (resposta == 1) {
+                    DadosProdutos.getAlimentos().remove(alimento);
+                    System.out.println(DadosProdutos.getAlimentos());
+                    break;
+                }
+
+
+//                public static void removendoEletrodomestico() {
+//                    System.out.println("Produto Eletrodomestico removido");
+//
+//                }
+            }
+        }
     }
 }
-

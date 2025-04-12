@@ -2,6 +2,7 @@ package desafioFinal.repositories;
 
 import desafioFinal.models.produtos.Alimentos;
 import desafioFinal.models.produtos.Eletrodomesticos;
+import desafioFinal.models.produtos.Produto;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -157,6 +158,10 @@ public class DadosProdutos {
 
     public static List<Eletrodomesticos> getEletrodomesticos() {
         return eletrodomesticos;
+    }
+    public static void removerProduto(Produto produto){
+
+
     }
 
     public static List<Alimentos> getAlimentos() {
