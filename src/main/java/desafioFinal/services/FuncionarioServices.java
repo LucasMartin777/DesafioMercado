@@ -152,9 +152,6 @@ public class FuncionarioServices {
                             System.out.println("Opção inválida.");
                             break;
                     }
-
-                } else {
-                    break;
                 }
             }
         }
@@ -229,7 +226,6 @@ public class FuncionarioServices {
                 }
             }
         }
-
     }
 
     public static void removendoAlimento() {
@@ -239,24 +235,47 @@ public class FuncionarioServices {
         System.out.println("Informe o nome do alimento que deseja editar");
         String nomeAlimento = scanner.nextLine();
 
-
         for (Alimentos alimento : DadosProdutos.getAlimentos()) {
-            if (Objects.equals(alimento.getnomeProduto().toLowerCase(), nomeAlimento.toLowerCase())) {
-                System.out.println("Voce deseja deletar o " + alimento + "?");
-                System.out.println("1 para s e 2 para nao");
+
+            if (alimento.getnomeProduto().equalsIgnoreCase(nomeAlimento)) {
+                System.out.println("🗑️ Deseja deletar o " + alimento + "?\n[1] Sim\n[2] Não");
+
+
                 int resposta = scanner.nextInt();
+
                 if (resposta == 1) {
-                    DadosProdutos.getAlimentos().remove(alimento);
-                    System.out.println(DadosProdutos.getAlimentos());
+                    DadosProdutos.removerPorNomeAlimento(alimento);
+                    System.out.println("✅ Produto removido com sucesso!");
+
                     break;
                 }
+            }
+        }
+    }
+
+    public static void removendoEletrodomestico() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println(DadosProdutos.getEletrodomesticos());
+        System.out.println("Informe o nome do produto que deseja remover");
+        String nomeEletrodomestico = scanner.nextLine();
+
+        for (Eletrodomesticos eletrodomestico : DadosProdutos.getEletrodomesticos()) {
+
+            if (eletrodomestico.getnomeProduto().equalsIgnoreCase(nomeEletrodomestico)) {
+                System.out.println("🗑️ Deseja deletar o " + eletrodomestico + "?\n[1] Sim\n[2] Não");
 
 
-//                public static void removendoEletrodomestico() {
-//                    System.out.println("Produto Eletrodomestico removido");
-//
-//                }
+                int resposta = scanner.nextInt();
+
+                if (resposta == 1) {
+                    DadosProdutos.removerPorNomeEletrodomestico(eletrodomestico);
+                    System.out.println("✅ Produto removido com sucesso!");
+
+                    break;
+                }
             }
         }
     }
 }
+

@@ -15,7 +15,7 @@ public class ValidacaoUsuario {
                 ╔═══════════════════════════════════════╗
                 ║        VALIDAÇÃO DE CLIENTE          ║
                 ╚═══════════════════════════════════════╝
-                → Nome do usuário: """);
+                → Nome do Cliente: """);
         String dado = scanner.nextLine();
         System.out.print("→ Senha do usuário: ");
         String dado1 = scanner.nextLine();
@@ -43,11 +43,16 @@ public class ValidacaoUsuario {
     }
 
     public static int validadoFuncionario(List<Funcionario> funcionarios) {
-        System.out.println("Informe o nome do usuario:");
         Scanner scanner = new Scanner(System.in);
+        System.out.print("""
+                ╔═══════════════════════════════════════╗
+                ║       INFORMAÇÕES DO FUNCIONÁRIO     ║
+                ╚═══════════════════════════════════════╝
+                → Nome do funcionário: """);
         String dado = scanner.nextLine();
-        System.out.println("Informe a senha do usuario:");
+        System.out.print("→ Senha do funcionário: ");
         String dado1 = scanner.nextLine();
+
 
         Boolean encontrou = false;
         for (Funcionario funcionario : funcionarios) {

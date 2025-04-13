@@ -159,18 +159,24 @@ public class DadosProdutos {
     public static List<Eletrodomesticos> getEletrodomesticos() {
         return eletrodomesticos;
     }
-    public static void removerProduto(Produto produto){
-
-
-    }
 
     public static List<Alimentos> getAlimentos() {
         return alimentos;
     }
 
+    public static void removerPorNomeAlimento(Alimentos alimento) {
+        alimentos.removeIf(a -> a.getnomeProduto().equalsIgnoreCase(alimento.getnomeProduto()));
+    }
+
+    public static void removerPorNomeEletrodomestico(Eletrodomesticos eletrodomestico) {
+        eletrodomesticos.removeIf(a -> a.getnomeProduto().equalsIgnoreCase(eletrodomestico.getnomeProduto()));
+    }
+
+
     public static void adicionarProdutoEletro(Eletrodomesticos novoELetro) {
         eletrodomesticos.add((novoELetro));
     }
+
     public static void adicionarProdutoAli(Alimentos novoALi) {
         alimentos.add((novoALi));
     }

@@ -34,8 +34,6 @@ public class ViewFuncionario {
                 if (op2 == 0) {
                     break;
                 }
-
-
             }
             while (op1 == 2) {
                 MensagensFuncionario.tipoDeListaProduto();
@@ -49,7 +47,6 @@ public class ViewFuncionario {
                 }
                 if (op4 == 0) {
                     break;
-
                 }
             }
             while (op1 == 3) {
@@ -58,9 +55,9 @@ public class ViewFuncionario {
                 if (op3 == 1) {
                     FuncionarioServices.removendoAlimento();
                 }
-//                if (op3 == 2) {
-//                    FuncionarioServices.removendoEletrodomestico();
-//                }
+                if (op3 == 2) {
+                    FuncionarioServices.removendoEletrodomestico();
+                }
                 if (op3 == 0) {
                     break;
 
